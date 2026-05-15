@@ -15,7 +15,7 @@ class _SpalshScrState extends State<SpalshScr> {
     Future.delayed(Duration(seconds: 4), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Loginscr()),
+        MaterialPageRoute(builder: (context) => LoginScr()),
       );
     });
   }
