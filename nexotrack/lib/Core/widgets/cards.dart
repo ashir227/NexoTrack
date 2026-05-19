@@ -1,19 +1,9 @@
 import 'package:flutter/material.dart';
-// import 'package:matflow/providers/addmatlist.dart';
-// import 'package:provider/provider.dart';
 
-Widget Cards(
-  // SizedBox sizex,
-  BuildContext context,
-  String txt,
-  IconData icon,
-  Color iconColor,
-  String value,
-) {
+Widget Cards(BuildContext context, String txt, String value) {
   double w = MediaQuery.of(context).size.width;
   double h = MediaQuery.of(context).size.height;
-  // final matqty = context.watch<AddmatProvider>().material.length;
-  // final unitcnt = context.watch<AddmatProvider>().unitcount;
+
   return SizedBox(
     height: h * 0.16,
     width: w * 0.30,
@@ -29,22 +19,34 @@ Widget Cards(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Row(
-              children: [
-                Text(
-                  txt,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    color: const Color.fromARGB(255, 142, 141, 141),
+            Flexible(
+              child: Row(
+                children: [
+                  Flexible(
+                    child: Text(
+                      txt,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: w * 0.04,
+                        fontWeight: FontWeight.w500,
+                        color: const Color.fromARGB(255, 142, 141, 141),
+                      ),
+                    ),
                   ),
-                ),
-                SizedBox(width: w * 0.15),
-              ],
+                ],
+              ),
             ),
-
-            Text(
-              value,
-              style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
+            SizedBox(height: w * 0.02),
+            Flexible(
+              child: Text(
+                value,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+                style: TextStyle(
+                  fontSize: w * 0.045,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
             ),
           ],
         ),

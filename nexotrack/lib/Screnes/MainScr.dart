@@ -17,27 +17,9 @@ class Mainnscr extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Cards(
-                context,
-                "Total Value",
-                Icons.abc_outlined,
-                PrimaryColor.ProftClr,
-                "value",
-              ),
-              Cards(
-                context,
-                "Invested",
-                Icons.abc_outlined,
-                PrimaryColor.ProftClr,
-                "value",
-              ),
-              Cards(
-                context,
-                "Profit/Loss",
-                Icons.abc_outlined,
-                PrimaryColor.ProftClr,
-                "value",
-              ),
+              Cards(context, "Total Value", "value"),
+              Cards(context, "Invested", "value"),
+              Cards(context, "Profit/Loss", 'value'),
             ],
           ),
         ],
