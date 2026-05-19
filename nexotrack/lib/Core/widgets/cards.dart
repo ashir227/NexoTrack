@@ -16,7 +16,7 @@ Widget Cards(
   // final unitcnt = context.watch<AddmatProvider>().unitcount;
   return SizedBox(
     height: h * 0.16,
-    width: w * 0.46,
+    width: w * 0.30,
     child: Card(
       margin: EdgeInsets.zero,
       color: Colors.white,
@@ -39,7 +39,6 @@ Widget Cards(
                   ),
                 ),
                 SizedBox(width: w * 0.15),
-                Icon(icon, color: iconColor, size: 27),
               ],
             ),
 

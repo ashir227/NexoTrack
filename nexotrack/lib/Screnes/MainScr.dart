@@ -14,12 +14,31 @@ class Mainnscr extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(height: h * 0.1),
-          Cards(
-            context,
-            "txt",
-            Icons.abc_outlined,
-            PrimaryColor.ProftClr,
-            "value",
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Cards(
+                context,
+                "Total Value",
+                Icons.abc_outlined,
+                PrimaryColor.ProftClr,
+                "value",
+              ),
+              Cards(
+                context,
+                "Invested",
+                Icons.abc_outlined,
+                PrimaryColor.ProftClr,
+                "value",
+              ),
+              Cards(
+                context,
+                "Profit/Loss",
+                Icons.abc_outlined,
+                PrimaryColor.ProftClr,
+                "value",
+              ),
+            ],
           ),
         ],
       ),
