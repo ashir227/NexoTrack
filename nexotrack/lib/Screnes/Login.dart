@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nexotrack/Core/theme/color.dart';
+import 'package:nexotrack/Provider/LoginPro.dart';
+import 'package:nexotrack/Screnes/MainScr.dart';
 
 class LoginScr extends StatelessWidget {
   const LoginScr({super.key});
@@ -43,7 +45,12 @@ class LoginScr extends StatelessWidget {
                   vertical: h * 0.016,
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Mainnscr()),
+                );
+              },
               child: Text(
                 "Login",
                 style: TextStyle(

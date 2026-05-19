@@ -1,10 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:nexotrack/Core/theme/color.dart';
+import 'package:nexotrack/Core/widgets/cards.dart';
 
 class Mainnscr extends StatelessWidget {
   const Mainnscr({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    double w = MediaQuery.of(context).size.width;
+    double h = MediaQuery.of(context).size.height;
+    return Scaffold(
+      backgroundColor: PrimaryColor.BckColor,
+      body: Column(
+        children: [
+          SizedBox(height: h * 0.1),
+          Cards(
+            context,
+            "txt",
+            Icons.abc_outlined,
+            PrimaryColor.ProftClr,
+            "value",
+          ),
+        ],
+      ),
+    );
   }
 }

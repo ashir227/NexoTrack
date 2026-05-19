@@ -4,7 +4,7 @@ import 'package:nexotrack/Screnes/MainScr.dart';
 
 class LoginPro extends ChangeNotifier {
   String pass = "";
-  String? password;
+  // String? password;
   islogin(BuildContext context, String pass) {
     if (pass == "122") {
       var box = Hive.box("login");
