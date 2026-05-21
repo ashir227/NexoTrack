@@ -1,10 +1,17 @@
-import 'package:flutter/material.dart';
+class CryptoModel {
+  String id;
+  String name;
+  String symbol;
+  double price;
+  double change24h;
+  String? image;
 
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
-  }
+  CryptoModel({
+    required this.id,
+    required this.name,
+    required this.symbol,
+    required this.price,
+    required this.change24h,
+    this.image,
+  });
 }
