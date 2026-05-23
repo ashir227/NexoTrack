@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nexotrack/Core/theme/color.dart';
 import 'package:nexotrack/Core/widgets/cards.dart';
+import 'package:nexotrack/Screnes/CoinLists.dart';
 
 class Mainnscr extends StatelessWidget {
   const Mainnscr({super.key});
@@ -21,6 +22,16 @@ class Mainnscr extends StatelessWidget {
               Cards(context, "Invested", "value"),
               Cards(context, "Profit/Loss", 'value'),
             ],
+          ),
+          SizedBox(height: h * 0.05),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Coinlist()),
+              );
+            },
+            child: Text("data"),
           ),
         ],
       ),
