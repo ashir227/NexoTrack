@@ -11,7 +11,7 @@ class CryptoPro extends ChangeNotifier {
     isload = true;
     notifyListeners();
 
-    Coinslst = await apis.get(context);
+    Coinslst = await apis.get();
 
     isload = false;
     notifyListeners();
