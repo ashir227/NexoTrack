@@ -6,12 +6,17 @@ class CryptoPro extends ChangeNotifier {
   CryptoModel? user;
   List<CryptoModel> Coinslst = [];
   bool isload = false;
+  String? error;
   CryptoApi apis = CryptoApi();
   Future<void> fetchcoin(BuildContext context) async {
     isload = true;
+    error = null;
     notifyListeners();
-
-    Coinslst = await apis.get();
+    try {
+      Coinslst = await apis.get();
+    } catch (e) {
+      error = e.toString();
+    }
 
     isload = false;
     notifyListeners();
