@@ -18,7 +18,9 @@ class CryptoApi {
         throw Exception("Failed to Catch :${res.statusCode}");
       }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("$e")));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar
+      (content: Text("$e")));
+      return [];
     }
   }
 }
