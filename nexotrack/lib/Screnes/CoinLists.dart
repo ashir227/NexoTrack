@@ -11,6 +11,8 @@ class Coinlist extends StatelessWidget {
     bool isload = true;
     bool nointernet = false;
     loadlist();
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(title: Text("My Holdings", textAlign: TextAlign.start)),
+    );
   }
 }
