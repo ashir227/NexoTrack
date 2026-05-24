@@ -36,13 +36,14 @@ class Mainnscr extends StatelessWidget {
               Cards(context, "Profit/Loss", 'value'),
             ],
           ),
-          SizedBox(height: h * 0.05),
+          SizedBox(height: h * 0.06),
           ElevBtn(context, {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => Coinlist()),
             ),
           }),
+          SizedBox(height: 8),
           ElevBtn(context, {
             Navigator.push(
               context,
