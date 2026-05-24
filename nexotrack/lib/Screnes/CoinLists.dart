@@ -25,8 +25,6 @@ class _CoinlistState extends State<Coinlist> {
 
   @override
   Widget build(BuildContext context) {
-    double w = MediaQuery.of(context).size.width;
-    double h = MediaQuery.of(context).size.height;
     List<CryptoModel> Coinslst = [];
     bool isload = true;
     bool nointernet = false;

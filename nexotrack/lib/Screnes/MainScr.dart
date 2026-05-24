@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nexotrack/Core/theme/color.dart';
 import 'package:nexotrack/Core/widgets/cards.dart';
+import 'package:nexotrack/Core/widgets/elevButn.dart';
+import 'package:nexotrack/Screnes/AddCoin.dart';
 import 'package:nexotrack/Screnes/CoinLists.dart';
 
 class Mainnscr extends StatelessWidget {
@@ -35,37 +37,18 @@ class Mainnscr extends StatelessWidget {
             ],
           ),
           SizedBox(height: h * 0.05),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(11),
-              ),
-
-              padding: EdgeInsets.symmetric(
-                horizontal: w * 0.05,
-                vertical: h * 0.02,
-              ),
-              backgroundColor: PrimaryColor.BtnColor,
-              foregroundColor: SecColor.textwhclr,
-              elevation: w * 0.7,
+          ElevBtn(context, {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Coinlist()),
             ),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Coinlist()),
-              );
-            },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "📊 View All Coins Prices",
-                  style: TextStyle(fontSize: w * 0.05),
-                ),
-                Text("See current rates of all cryptocurrencies"),
-              ],
+          }),
+          ElevBtn(context, {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Addcoin()),
             ),
-          ),
+          }),
         ],
       ),
     );
