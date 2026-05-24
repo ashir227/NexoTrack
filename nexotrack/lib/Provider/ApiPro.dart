@@ -3,12 +3,12 @@ import 'package:nexotrack/Models/ApiModel.dart';
 import 'package:nexotrack/Servise/Api.dart';
 
 class CryptoPro extends ChangeNotifier {
-  CryptoModel? user;
+  // CryptoModel? user;
   List<CryptoModel> Coinslst = [];
   bool isload = false;
   String? error;
   CryptoApi apis = CryptoApi();
-  Future<void> fetchcoin(BuildContext context) async {
+  Future<void> fetchcoin() async {
     isload = true;
     error = null;
     notifyListeners();
