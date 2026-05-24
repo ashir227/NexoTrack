@@ -10,4 +10,6 @@ class PrimaryColor {
 
 class SecColor {
   static const Color borderclr = Color(0xff3B82F6);
+  static const Color textwhclr = Color(0xFFFFFFFF);
+  static const Color textgrclr = Color(0xFF9E9E9E);
 }

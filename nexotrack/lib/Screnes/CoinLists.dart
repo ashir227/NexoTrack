@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:nexotrack/Core/theme/color.dart';
 import 'package:nexotrack/Models/ApiModel.dart';
 import 'package:nexotrack/Provider/ApiPro.dart';
 import 'package:nexotrack/Servise/connectivity_check.dart';
@@ -31,12 +32,15 @@ class _CoinlistState extends State<Coinlist> {
     bool nointernet = false;
     loadlist();
     return Scaffold(
+      backgroundColor: PrimaryColor.BckColor,
       appBar: AppBar(title: Text("My Holdings", textAlign: TextAlign.start)),
 
       body: Consumer<CryptoPro>(
         builder: (context, provider, child) {
           if (provider.isload) {
-            return CircularProgressIndicator();
+            return Center(
+              child: CircularProgressIndicator(color: PrimaryColor.BtnColor),
+            );
           }
           if (provider.error != null) {
             return Center(child: Text(provider.error!));
@@ -51,9 +55,16 @@ class _CoinlistState extends State<Coinlist> {
               return Card(
                 margin: const EdgeInsets.symmetric(horizontal: 22, vertical: 6),
                 child: ListTile(
-                  title: Text(coin.name),
+                  tileColor: PrimaryColor.CrdColor,
+                  title: Text(
+                    coin.name,
+                    style: TextStyle(color: SecColor.textwhclr),
+                  ),
 
-                  subtitle: Text("${coin.price}"),
+                  subtitle: Text(
+                    "${coin.price}",
+                    style: TextStyle(color: SecColor.textgrclr),
+                  ),
                   trailing: Text(
                     "${coin.change24h.toStringAsFixed(2)}%",
                     style: TextStyle(
