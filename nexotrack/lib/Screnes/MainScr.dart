@@ -16,8 +16,8 @@ class Mainnscr extends StatelessWidget {
           "Portfolio",
           style: TextStyle(
             color: SecColor.textwhclr,
-            fontSize: w * 0.09,
-            fontWeight: FontWeight.w600,
+            fontSize: w * 0.1,
+            fontWeight: FontWeight.w700,
           ),
         ),
         backgroundColor: PrimaryColor.BckColor,
@@ -25,7 +25,7 @@ class Mainnscr extends StatelessWidget {
       backgroundColor: PrimaryColor.BckColor,
       body: Column(
         children: [
-          SizedBox(height: h * 0.1),
+          SizedBox(height: h * 0.04),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -36,13 +36,35 @@ class Mainnscr extends StatelessWidget {
           ),
           SizedBox(height: h * 0.05),
           ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(11),
+              ),
+
+              padding: EdgeInsets.symmetric(
+                horizontal: w * 0.05,
+                vertical: h * 0.02,
+              ),
+              backgroundColor: PrimaryColor.BtnColor,
+              foregroundColor: SecColor.textwhclr,
+              elevation: w * 0.7,
+            ),
             onPressed: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => Coinlist()),
               );
             },
-            child: Text("data"),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "📊 View All Coins Prices",
+                  style: TextStyle(fontSize: w * 0.05),
+                ),
+                Text("See current rates of all cryptocurrencies"),
+              ],
+            ),
           ),
         ],
       ),
