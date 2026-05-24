@@ -37,9 +37,27 @@ class Mainnscr extends StatelessWidget {
             ],
           ),
           SizedBox(height: h * 0.06),
-          ElevBtn(context: context, text: "📊 View All Coins Prices"),
+          ElevBtn(
+            context: context,
+            text: "📊 View All Coins Prices",
+            onpressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Coinlist()),
+              );
+            },
+          ),
           SizedBox(height: h * 0.05),
-          ElevBtn(context: context, text: "Add Cryptocurrency"),
+          ElevBtn(
+            context: context,
+            text: "Add Cryptocurrency",
+            onpressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Addcoin()),
+              );
+            },
+          ),
         ],
       ),
     );

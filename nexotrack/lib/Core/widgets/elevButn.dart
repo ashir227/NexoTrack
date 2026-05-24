@@ -4,10 +4,10 @@ import 'package:nexotrack/Screnes/CoinLists.dart';
 
 Widget ElevBtn({
   required BuildContext context,
-  callback,
+  // required VoidCallback onpressed,
   required String text,
 }) {
-  CallbackAction? callback;
+  VoidCallback? onpressed;
 
   double w = MediaQuery.of(context).size.width;
   double h = MediaQuery.of(context).size.height;
@@ -30,11 +30,11 @@ Widget ElevBtn({
         elevation: 0, // ← OR THIS
       ),
       onPressed: () {
-        callback;
+        onpressed;
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [Text(text)],
+        children: [Text(text), Text(text)],
       ),
     ),
   );
