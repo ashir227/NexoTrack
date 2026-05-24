@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:nexotrack/Core/theme/color.dart';
 import 'package:nexotrack/Screnes/CoinLists.dart';
 
-Widget ElevBtn(BuildContext context, callback) {
+Widget ElevBtn({
+  required BuildContext context,
+  callback,
+  required String text,
+}) {
   CallbackAction? callback;
+
   double w = MediaQuery.of(context).size.width;
   double h = MediaQuery.of(context).size.height;
   return DecoratedBox(
@@ -29,13 +34,7 @@ Widget ElevBtn(BuildContext context, callback) {
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            "📊 View All Coins Prices",
-            style: TextStyle(fontSize: w * 0.05),
-          ),
-          Text("See current rates of all cryptocurrencies"),
-        ],
+        children: [Text(text)],
       ),
     ),
   );
