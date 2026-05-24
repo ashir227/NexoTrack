@@ -11,6 +11,17 @@ class Mainnscr extends StatelessWidget {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "Portfolio",
+          style: TextStyle(
+            color: SecColor.textwhclr,
+            fontSize: w * 0.09,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+        backgroundColor: PrimaryColor.BckColor,
+      ),
       backgroundColor: PrimaryColor.BckColor,
       body: Column(
         children: [

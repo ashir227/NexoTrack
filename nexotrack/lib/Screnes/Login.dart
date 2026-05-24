@@ -46,7 +46,7 @@ class LoginScr extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                Navigator.push(
+                Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => Mainnscr()),
                 );

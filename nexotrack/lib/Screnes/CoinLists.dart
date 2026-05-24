@@ -55,7 +55,7 @@ class _CoinlistState extends State<Coinlist> {
               return Card(
                 margin: const EdgeInsets.symmetric(horizontal: 22, vertical: 6),
                 child: ListTile(
-                  tileColor: PrimaryColor.CrdColor,
+                  tileColor: SecColor.textfldbg,
                   title: Text(
                     coin.name,
                     style: TextStyle(color: SecColor.textwhclr),
