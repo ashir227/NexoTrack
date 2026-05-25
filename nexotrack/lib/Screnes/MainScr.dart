@@ -39,7 +39,8 @@ class Mainnscr extends StatelessWidget {
           SizedBox(height: h * 0.06),
           ElevBtn(
             context: context,
-            text: "📊 View All Coins Prices",
+            text:
+                "📊 View All Coins Prices \n See current rates of all cryptocurrencies",
             onpressed: () {
               Navigator.push(
                 context,
