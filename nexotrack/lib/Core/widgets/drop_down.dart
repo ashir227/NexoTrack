@@ -19,12 +19,20 @@ class Drop extends StatelessWidget {
     return DropdownButtonFormField<CryptoModel>(
       dropdownColor: PrimaryColor.BckColor,
       decoration: InputDecoration(
+        filled: true,
+        fillColor: PrimaryColor.CrdColor,
         enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: SecColor.borderclr),
+          borderSide: BorderSide(
+            color: SecColor.borderclr.withOpacity(0.6),
+            width: 1,
+          ),
           borderRadius: BorderRadius.circular(9),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: SecColor.borderclr),
+          borderSide: BorderSide(
+            color: SecColor.borderclr.withOpacity(0.6),
+            width: 1.5,
+          ),
           borderRadius: BorderRadius.circular(9),
         ),
       ),
@@ -38,7 +46,7 @@ class Drop extends StatelessWidget {
           value: coin,
 
           child: Container(
-            padding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+            padding: EdgeInsets.symmetric(vertical: 2, horizontal: 10),
 
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(9),

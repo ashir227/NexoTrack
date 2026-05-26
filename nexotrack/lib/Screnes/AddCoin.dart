@@ -39,14 +39,16 @@ class _AddcoinState extends State<Addcoin> {
 
             Form(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   reusetext(
                     context: context,
                     clr: SecColor.textwhclr,
                     Size: w * 0.05,
-                    txt: "Select Cyyptocurrency",
+                    txt: "Select Cryptocurrency",
                     FontWeight: FontWeight.w700,
                   ),
+                  SizedBox(height: h * 0.01),
                   Drop(
                     selectedcoin: selcoin,
                     onChanged: (value) {
@@ -56,7 +58,6 @@ class _AddcoinState extends State<Addcoin> {
                     },
                     coins: pro.Coinslst,
                   ),
-                  TextField(),
                 ],
               ),
             ),
