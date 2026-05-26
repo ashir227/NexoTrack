@@ -4,8 +4,9 @@ import 'package:nexotrack/Core/theme/color.dart';
 Widget reusetext({
   required BuildContext context,
   required Color clr,
-  required Size,
+  required double Size,
   required String txt,
+  required FontWeight,
 }) {
   double h = MediaQuery.of(context).size.height;
   double w = MediaQuery.of(context).size.width;
@@ -13,10 +14,6 @@ Widget reusetext({
   return Text(
     txt,
 
-    style: TextStyle(
-      color: SecColor().textwhclr,
-      fontSize: w * 0.08,
-      fontWeight: FontWeight.w700,
-    ),
+    style: TextStyle(color: clr, fontSize: Size, fontWeight: FontWeight),
   );
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nexotrack/Core/theme/color.dart';
+import 'package:nexotrack/Core/widgets/text.dart';
 
 class Addcoin extends StatelessWidget {
   const Addcoin({super.key});
@@ -16,17 +17,30 @@ class Addcoin extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(height: h * 0.07),
-            Text(
-              "Add Cryptocurrency",
-
-              style: TextStyle(
-                color: SecColor.textwhclr,
-                fontSize: w * 0.08,
-                fontWeight: FontWeight.w700,
-              ),
+            reusetext(
+              context: context,
+              clr: SecColor.textwhclr,
+              Size: w * 0.08,
+              txt: "Add Cryptocurrency",
+              FontWeight: FontWeight.w700,
             ),
             SizedBox(height: h * 0.04),
-            Text("Select Cryptocurrency"),
+
+            Form(
+              child: Column(
+                children: [
+                  reusetext(
+                    context: context,
+                    clr: SecColor.textwhclr,
+                    Size: w * 0.05,
+                    txt: "Select Cyyptocurrency",
+                    FontWeight: FontWeight.w700,
+                  ),
+                  TextField(),
+                  TextField(),
+                ],
+              ),
+            ),
           ],
         ),
       ),
