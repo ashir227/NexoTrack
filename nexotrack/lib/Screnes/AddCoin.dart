@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nexotrack/Core/theme/color.dart';
+import 'package:nexotrack/Core/widgets/Custmtxtfld.dart';
 import 'package:nexotrack/Core/widgets/drop_down.dart';
 import 'package:nexotrack/Core/widgets/text.dart';
 import 'package:nexotrack/Models/ApiModel.dart';
@@ -14,12 +15,16 @@ class Addcoin extends StatefulWidget {
 }
 
 class _AddcoinState extends State<Addcoin> {
+  CryptoModel? selcoin;
   @override
   Widget build(BuildContext context) {
+    final Amntcontroller = TextEditingController();
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     var pro = context.watch<CryptoPro>();
-    CryptoModel? selcoin;
+    // var pros = context.watch<CryptoModel>();
+
+    // CryptoModel? selcoin;
     return Scaffold(
       backgroundColor: PrimaryColor.BckColor,
       body: Container(
@@ -57,6 +62,41 @@ class _AddcoinState extends State<Addcoin> {
                       });
                     },
                     coins: pro.Coinslst,
+                  ),
+                  SizedBox(height: h * 0.04),
+                  reusetext(
+                    context: context,
+                    clr: SecColor.textwhclr,
+                    Size: w * 0.05,
+                    txt: "Amount (How much you own)",
+                    FontWeight: FontWeight.w700,
+                  ),
+                  SizedBox(height: h * 0.01),
+                  CstmFld(
+                    validator: (value) {
+                      if (value == null) {
+                        return "Please enter Valid Qty";
+                      }
+                    },
+                    controller: Amntcontroller,
+                  ),
+                  Container(
+                    height: h * 0.5,
+                    width: w * 0.7,
+                    child: Column(
+                      children: [
+                        Text(
+                          "Current Market Price",
+                          style: TextStyle(color: SecColor.textwhclr),
+                        ),
+                        Text(
+                          selcoin == null
+                              ? "Select coin first"
+                              : selcoin!.price.toString(),
+                          style: TextStyle(color: SecColor.textwhclr),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

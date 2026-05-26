@@ -58,6 +58,7 @@ class Drop extends StatelessWidget {
                   coin.name.toUpperCase(),
                   style: TextStyle(color: SecColor.textwhclr),
                 ),
+                // Text(selectedcoin!.price.toString())
               ],
             ),
           ),

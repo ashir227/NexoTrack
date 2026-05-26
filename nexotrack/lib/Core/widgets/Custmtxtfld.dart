@@ -1,11 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:nexotrack/Core/theme/color.dart';
 
 class CstmFld extends StatelessWidget {
   final FormFieldValidator validator;
-  const CstmFld({super.key, required this.validator});
+  final TextEditingController controller;
+  const CstmFld({super.key, required this.validator, required this.controller});
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(validator: validator);
+    return TextFormField(
+      validator: validator,
+      decoration: InputDecoration(
+        fillColor: PrimaryColor.CrdColor,
+        filled: true,
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(
+            width: 1.5,
+            color: SecColor.borderclr.withOpacity(0.6),
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(
+            color: SecColor.borderclr.withOpacity(0.6),
+            width: 1,
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -13,7 +13,6 @@ Widget reusetext({
   // String? txt;
   return Text(
     txt,
-    textAlign: TextAlign.right,
     style: TextStyle(color: clr, fontSize: Size, fontWeight: FontWeight),
   );
 }
