@@ -9,6 +9,9 @@ class CstmFld extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      style: TextStyle(color: SecColor.textwhclr),
+      keyboardType: TextInputType.number,
+
       validator: validator,
       decoration: InputDecoration(
         fillColor: PrimaryColor.CrdColor,
