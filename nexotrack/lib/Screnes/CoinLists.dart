@@ -25,13 +25,27 @@ class _CoinlistState extends State<Coinlist> {
 
   @override
   Widget build(BuildContext context) {
+    final w = MediaQuery.of(context).size.width;
     List<CryptoModel> Coinslst = [];
     bool isload = true;
     bool nointernet = false;
     loadlist();
     return Scaffold(
       backgroundColor: PrimaryColor.BckColor,
-      appBar: AppBar(title: Text("My Holdings", textAlign: TextAlign.start)),
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: PrimaryColor.BckColor,
+        title: Text(
+          "Crypto Prices",
+
+          // textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: w * 0.08,
+            color: SecColor.textwhclr,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
 
       body: Consumer<CryptoPro>(
         builder: (context, provider, child) {
@@ -55,12 +69,12 @@ class _CoinlistState extends State<Coinlist> {
                 child: ListTile(
                   tileColor: SecColor.textfldbg,
                   title: Text(
-                    coin.name,
+                    "coin.name",
                     style: TextStyle(color: SecColor.textwhclr),
                   ),
 
                   subtitle: Text(
-                    "${coin.price}",
+                    "\$ ${coin.price}",
                     style: TextStyle(color: SecColor.textgrclr),
                   ),
                   trailing: Text(
