@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:nexotrack/Core/theme/color.dart';
 import 'package:nexotrack/Models/ApiModel.dart';
 import 'package:nexotrack/Provider/ApiPro.dart';
-import 'package:nexotrack/Servise/connectivity_check.dart';
+import 'package:nexotrack/Services/connectivity_check.dart';
 import 'package:provider/provider.dart';
 
 class Coinlist extends StatefulWidget {

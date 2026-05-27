@@ -80,20 +80,72 @@ class _AddcoinState extends State<Addcoin> {
                     },
                     controller: Amntcontroller,
                   ),
+                  SizedBox(height: h * 0.07),
                   Container(
-                    height: h * 0.5,
-                    width: w * 0.7,
-                    child: Column(
+                    // color: Colors.amber,
+                    padding: EdgeInsets.only(
+                      // horizontal: w * 0.02,
+                      // top: h * 0.02,
+                      left: w * 0.02,
+                    ),
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [PrimaryColor.BtnColor, PrimaryColor.CrdColor],
+                      ),
+                      color: PrimaryColor.CrdColor,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    height: h * 0.145,
+                    width: w * 0.9,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          "Current Market Price",
-                          style: TextStyle(color: SecColor.textwhclr),
-                        ),
-                        Text(
-                          selcoin == null
-                              ? "Select coin first"
-                              : selcoin!.price.toString(),
-                          style: TextStyle(color: SecColor.textwhclr),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Current Market Price",
+                              style: TextStyle(
+                                color: const Color.fromARGB(255, 215, 215, 215),
+                                fontSize: w * 0.043,
+                              ),
+                            ),
+                            Text(
+                              selcoin == null
+                                  ? "Select coin first"
+                                  : "\$ ${selcoin!.price.toString()}",
+                              style: TextStyle(
+                                color: SecColor.textwhclr,
+                                fontSize: w * 0.065,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  selcoin == null
+                                      ? "Select coin first"
+                                      : "${selcoin!.change24h.toStringAsFixed(2)}%",
+                                  style: TextStyle(
+                                    color: (selcoin?.change24h ?? 0) >= 0
+                                        ? Colors.green
+                                        : Colors.red,
+                                    fontSize: w * 0.05,
+                                  ),
+                                ),
+                                SizedBox(width: w * 0.014),
+                                Icon(
+                                  (selcoin?.change24h ?? 0) >= 0
+                                      ? Icons.trending_up
+                                      : Icons.trending_down,
+                                  color: (selcoin?.change24h ?? 0) >= 0
+                                      ? Colors.green
+                                      : Colors.red,
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
                       ],
                     ),
