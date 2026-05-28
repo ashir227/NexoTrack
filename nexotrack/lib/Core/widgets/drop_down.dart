@@ -17,6 +17,7 @@ class Drop extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<CryptoModel>(
+      isExpanded: true,
       dropdownColor: PrimaryColor.BckColor,
       decoration: InputDecoration(
         filled: true,
@@ -53,12 +54,19 @@ class Drop extends StatelessWidget {
               // color: PrimaryColor.CrdColor,
             ),
             child: Row(
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   coin.name.toUpperCase(),
+                  overflow: TextOverflow.ellipsis,
+
                   style: TextStyle(color: SecColor.textwhclr),
                 ),
-                // Text(selectedcoin!.price.toString())
+                Text(
+                  "\$ ${coin.price.toString()}",
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(color: SecColor.textwhclr),
+                ),
               ],
             ),
           ),

@@ -23,7 +23,7 @@ Widget ElevBtn({
     child: ElevatedButton(
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        padding: EdgeInsets.symmetric(horizontal: w * 0.05, vertical: h * 0.02),
+        padding: EdgeInsets.symmetric(horizontal: w * 0.16, vertical: h * 0.02),
         backgroundColor: Colors.transparent, // ← ADD THIS
         shadowColor: Colors.transparent, // ← ADD THIS
         foregroundColor: SecColor.textwhclr,

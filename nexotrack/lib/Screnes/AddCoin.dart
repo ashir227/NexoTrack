@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nexotrack/Core/theme/color.dart';
 import 'package:nexotrack/Core/widgets/Custmtxtfld.dart';
+import 'package:nexotrack/Core/widgets/amountcrd.dart';
 import 'package:nexotrack/Core/widgets/drop_down.dart';
+import 'package:nexotrack/Core/widgets/elevButn.dart';
 import 'package:nexotrack/Core/widgets/text.dart';
 import 'package:nexotrack/Models/ApiModel.dart';
 import 'package:nexotrack/Provider/ApiPro.dart';
@@ -78,86 +80,24 @@ class _AddcoinState extends State<Addcoin> {
                         if (value == null) {
                           return "Please enter Valid Qty";
                         }
+                        double? numm = double.tryParse(value);
+                        if (numm == null) {
+                          return "Enter Valid Qty";
+                        }
+                        if (numm < 0) {
+                          return "Enter positive Qty";
+                        }
                       },
                       controller: Amntcontroller,
                     ),
+
                     SizedBox(height: h * 0.07),
-                    Container(
-                      // color: Colors.amber,
-                      padding: EdgeInsets.only(
-                        // horizontal: w * 0.02,
-                        // top: h * 0.02,
-                        left: w * 0.02,
-                      ),
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [
-                            PrimaryColor.BtnColor,
-                            PrimaryColor.CrdColor,
-                          ],
-                        ),
-                        color: PrimaryColor.CrdColor,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      height: h * 0.145,
-                      width: w * 0.9,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Current Market Price",
-                                style: TextStyle(
-                                  color: const Color.fromARGB(
-                                    255,
-                                    215,
-                                    215,
-                                    215,
-                                  ),
-                                  fontSize: w * 0.043,
-                                ),
-                              ),
-                              Text(
-                                selcoin == null
-                                    ? "Select coin first"
-                                    : "\$ ${selcoin!.price.toString()}",
-                                style: TextStyle(
-                                  color: SecColor.textwhclr,
-                                  fontSize: w * 0.065,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    selcoin == null
-                                        ? "Select coin first"
-                                        : "${selcoin!.change24h.toStringAsFixed(2)}%",
-                                    style: TextStyle(
-                                      color: (selcoin?.change24h ?? 0) >= 0
-                                          ? Colors.green
-                                          : Colors.red,
-                                      fontSize: w * 0.05,
-                                    ),
-                                  ),
-                                  SizedBox(width: w * 0.014),
-                                  Icon(
-                                    (selcoin?.change24h ?? 0) >= 0
-                                        ? Icons.trending_up
-                                        : Icons.trending_down,
-                                    color: (selcoin?.change24h ?? 0) >= 0
-                                        ? Colors.green
-                                        : Colors.red,
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
+                    AmountCrd(selcoin: selcoin),
+
+                    ElevBtn(
+                      context: context,
+                      onpressed: () {},
+                      text: "Add Coin",
                     ),
                   ],
                 ),
