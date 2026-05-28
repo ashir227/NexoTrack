@@ -6,4 +6,9 @@ class FuncPro extends ChangeNotifier {
     var box = Hive.box("Amount");
     box.add("value");
   }
+
+  TotalAmnt() {
+    var box = Hive.box("Amount");
+    final total = 
+  }
 }

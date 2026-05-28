@@ -6,6 +6,7 @@ Widget ElevBtn({
   required BuildContext context,
   required VoidCallback onpressed,
   required String text,
+  required EdgeInsets paddings,
 }) {
   // VoidCallback? onpressed;
 
@@ -23,7 +24,7 @@ Widget ElevBtn({
     child: ElevatedButton(
       style: ElevatedButton.styleFrom(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-        padding: EdgeInsets.symmetric(horizontal: w * 0.16, vertical: h * 0.02),
+        padding: paddings,
         backgroundColor: Colors.transparent, // ← ADD THIS
         shadowColor: Colors.transparent, // ← ADD THIS
         foregroundColor: SecColor.textwhclr,

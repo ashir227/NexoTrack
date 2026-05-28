@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nexotrack/Core/theme/color.dart';
+import 'package:nexotrack/Core/widgets/ClickBtn.dart';
 import 'package:nexotrack/Provider/LoginPro.dart';
 import 'package:nexotrack/Screnes/MainScr.dart';
 
@@ -36,29 +37,14 @@ class LoginScr extends StatelessWidget {
               ),
             ),
             SizedBox(height: h * 0.02),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: PrimaryColor.BtnColor,
-
-                padding: EdgeInsets.symmetric(
-                  horizontal: w * 0.18,
-                  vertical: h * 0.016,
-                ),
-              ),
-              onPressed: () {
+            ClickBtn(
+              onpressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => Mainnscr()),
                 );
               },
-              child: Text(
-                "Login",
-                style: TextStyle(
-                  fontSize: w * 0.023,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white,
-                ),
-              ),
+              text: "Ligin",
             ),
           ],
         ),

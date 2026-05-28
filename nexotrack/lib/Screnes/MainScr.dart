@@ -38,6 +38,7 @@ class Mainnscr extends StatelessWidget {
           ),
           SizedBox(height: h * 0.06),
           ElevBtn(
+            paddings: EdgeInsets.symmetric(horizontal: 0.06, vertical: 0.04),
             context: context,
             text:
                 "📊 View All Coins Prices \n See current rates of all cryptocurrencies",
@@ -50,6 +51,7 @@ class Mainnscr extends StatelessWidget {
           ),
           SizedBox(height: h * 0.05),
           ElevBtn(
+            paddings: EdgeInsets.symmetric(horizontal: 0.06, vertical: 0.04),
             context: context,
             text: "Add Cryptocurrency",
             onpressed: () {

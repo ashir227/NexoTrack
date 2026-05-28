@@ -2,8 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:nexotrack/Core/theme/color.dart';
 import 'package:nexotrack/Screnes/MainScr.dart';
 
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
+class ClickBtn extends StatelessWidget {
+  VoidCallback onpressed;
+  String text;
+  EdgeInsets padding;
+  ClickBtn({
+    super.key,
+    required this.padding,
+    required this.onpressed,
+    required this.text,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,20 +26,10 @@ class MyWidget extends StatelessWidget {
           vertical: h * 0.016,
         ),
       ),
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => Mainnscr()),
-        );
-      },
-      child: Text(
-        "Login",
-        style: TextStyle(
-          fontSize: w * 0.023,
-          fontWeight: FontWeight.w700,
-          color: Colors.white,
-        ),
-      ),
+
+      onPressed: onpressed,
+
+      child: Text(text),
     );
   }
 }

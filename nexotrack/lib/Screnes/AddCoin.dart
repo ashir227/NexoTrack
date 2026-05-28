@@ -7,6 +7,7 @@ import 'package:nexotrack/Core/widgets/elevButn.dart';
 import 'package:nexotrack/Core/widgets/text.dart';
 import 'package:nexotrack/Models/ApiModel.dart';
 import 'package:nexotrack/Provider/ApiPro.dart';
+import 'package:nexotrack/Screnes/MainScr.dart';
 import 'package:provider/provider.dart';
 
 class Addcoin extends StatefulWidget {
@@ -95,8 +96,17 @@ class _AddcoinState extends State<Addcoin> {
                     AmountCrd(selcoin: selcoin),
 
                     ElevBtn(
+                      paddings: EdgeInsets.symmetric(
+                        horizontal: 0.06,
+                        vertical: 0.04,
+                      ),
                       context: context,
-                      onpressed: () {},
+                      onpressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Mainnscr()),
+                        );
+                      },
                       text: "Add Coin",
                     ),
                   ],
