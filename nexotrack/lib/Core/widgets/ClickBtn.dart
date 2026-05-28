@@ -21,15 +21,15 @@ class ClickBtn extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         backgroundColor: PrimaryColor.BtnColor,
 
-        padding: EdgeInsets.symmetric(
-          horizontal: w * 0.18,
-          vertical: h * 0.016,
-        ),
+        padding: padding,
       ),
 
       onPressed: onpressed,
 
-      child: Text(text),
+      child: Text(
+        text,
+        style: TextStyle(color: SecColor.textwhclr, fontSize: w * 0.05),
+      ),
     );
   }
 }
