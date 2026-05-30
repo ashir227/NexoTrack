@@ -1,10 +1,11 @@
-class Portfoliomodel {
-  String name;
-  String Qty;
-  String buyprice;
-  Portfoliomodel({
+class PortfolioModel {
+  final String name;
+  final double qty;
+  final double buyPrice;
+
+  PortfolioModel({
     required this.name,
-    required this.Qty,
-    required this.buyprice,
+    required this.qty,
+    required this.buyPrice,
   });
 }
