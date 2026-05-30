@@ -64,8 +64,8 @@ class LoginScr extends StatelessWidget {
               SizedBox(height: h * 0.04),
               ClickBtn(
                 padding: EdgeInsets.symmetric(
-                  vertical: h * 0.020,
-                  horizontal: w * 0.21,
+                  vertical: h * 0.018,
+                  horizontal: w * 0.18,
                 ),
                 onpressed: () {
                   Navigator.push(

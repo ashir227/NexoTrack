@@ -94,11 +94,11 @@ class _AddcoinState extends State<Addcoin> {
 
                     SizedBox(height: h * 0.07),
                     AmountCrd(selcoin: selcoin),
-
+                    SizedBox(height: h * 0.19),
                     ElevBtn(
                       paddings: EdgeInsets.symmetric(
-                        horizontal: 0.06,
-                        vertical: 0.04,
+                        horizontal: w * 0.38,
+                        vertical: h * 0.013,
                       ),
                       context: context,
                       onpressed: () {
