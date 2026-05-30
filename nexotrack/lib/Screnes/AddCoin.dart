@@ -6,6 +6,7 @@ import 'package:nexotrack/Core/widgets/drop_down.dart';
 import 'package:nexotrack/Core/widgets/elevButn.dart';
 import 'package:nexotrack/Core/widgets/text.dart';
 import 'package:nexotrack/Models/ApiModel.dart';
+import 'package:nexotrack/Models/portfolio_model.dart';
 import 'package:nexotrack/Provider/ApiPro.dart';
 import 'package:nexotrack/Screnes/MainScr.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +22,9 @@ class _AddcoinState extends State<Addcoin> {
   CryptoModel? selcoin;
   @override
   Widget build(BuildContext context) {
-    final Amntcontroller = TextEditingController();
+    final namecntrl = TextEditingController();
+    final Qtycntrl = TextEditingController();
+    final totalamntcntrl = TextEditingController();
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     var pro = context.watch<CryptoPro>();
@@ -89,7 +92,7 @@ class _AddcoinState extends State<Addcoin> {
                           return "Enter positive Qty";
                         }
                       },
-                      controller: Amntcontroller,
+                      controller: Qtycntrl,
                     ),
 
                     SizedBox(height: h * 0.07),
@@ -102,9 +105,18 @@ class _AddcoinState extends State<Addcoin> {
                       ),
                       context: context,
                       onpressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Mainnscr()),
+                        if (selcoin == null) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text('Pehle coin select karein!'),
+                            ),
+                          );
+                          return;
+                        }
+                        PortfolioModel addcoin = PortfolioModel(
+                          name: selcoin!.name,
+                          qty: double.parse(Qtycntrl.text),
+                          buyPrice: double.parse(totalamntcntrl.text),
                         );
                       },
                       text: "Add Coin",

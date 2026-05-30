@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:nexotrack/Screnes/AddCoin.dart';
 
 class FuncPro extends ChangeNotifier {
-  addPro() {
-    var box = Hive.box("Amount");
-    box.add("value");
+  addcoinpro(Addcoin) {
+    var box = Hive.box("mycoin");
+    box.add(Addcoin);
+    notifyListeners();
   }
 
   TotalAmnt() {
