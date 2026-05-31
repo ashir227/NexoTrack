@@ -5,15 +5,19 @@ import 'package:nexotrack/Core/widgets/Custmtxtfld.dart';
 import 'package:nexotrack/Core/widgets/text.dart';
 import 'package:nexotrack/Provider/LoginPro.dart';
 import 'package:nexotrack/Screnes/MainScr.dart';
+import 'package:provider/provider.dart';
 
 class LoginScr extends StatelessWidget {
-  const LoginScr({super.key});
+  LoginScr({super.key});
+  TextEditingController mailcntrl = TextEditingController();
+  TextEditingController passcntrl = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     var h = MediaQuery.of(context).size.height;
     var w = MediaQuery.of(context).size.height;
-    TextEditingController passcontrol = TextEditingController();
+    // TextEditingController passcontrol = TextEditingController();
     return Scaffold(
       backgroundColor: PrimaryColor.BckColor,
       body: Center(
@@ -51,7 +55,14 @@ class LoginScr extends StatelessWidget {
                 txt: "Email Address",
                 FontWeight: FontWeight.w700,
               ),
-              CstmFld(validator: (value) {}, controller: passcontrol),
+              CstmFld(
+                validator: (value) {
+                  if (value == null) {
+                    return "Please enter valid mail";
+                  }
+                },
+                controller: mailcntrl,
+              ),
               SizedBox(height: h * 0.02),
               reusetext(
                 context: context,
@@ -60,7 +71,22 @@ class LoginScr extends StatelessWidget {
                 txt: "Password",
                 FontWeight: FontWeight.w700,
               ),
-              CstmFld(validator: (value) {}, controller: passcontrol),
+              CstmFld(
+                key: _formKey,
+                validator: (value) {
+                  if (value == null) {
+                    return "Please enter valid password";
+                  }
+                  int? numm = int.tryParse(value);
+                  if (numm == null) {
+                    "Please enter valid password";
+                  }
+                  if (numm! < 0) {
+                    "Please enter positive value";
+                  }
+                },
+                controller: passcntrl,
+              ),
               SizedBox(height: h * 0.04),
               ClickBtn(
                 padding: EdgeInsets.symmetric(
@@ -68,10 +94,7 @@ class LoginScr extends StatelessWidget {
                   horizontal: w * 0.18,
                 ),
                 onpressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Mainnscr()),
-                  );
+                  context.read<LoginPro>().islogin(context, passcontrol.text);
                 },
                 text: "Sign In",
               ),

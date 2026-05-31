@@ -18,7 +18,7 @@ class _SpalshScrState extends State<SpalshScr> {
 
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const LoginScr()),
+        MaterialPageRoute(builder: (context) => LoginScr()),
       );
     });
   }
