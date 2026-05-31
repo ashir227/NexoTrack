@@ -54,7 +54,7 @@ class Drop extends StatelessWidget {
               // color: PrimaryColor.CrdColor,
             ),
             child: Row(
-              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   coin.name.toUpperCase(),

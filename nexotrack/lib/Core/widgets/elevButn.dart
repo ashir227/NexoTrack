@@ -33,7 +33,13 @@ Widget ElevBtn({
       onPressed: onpressed,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [Text(text)],
+        children: [
+          Text(
+            text,
+            style: TextStyle(fontSize: 20),
+            textAlign: TextAlign.center,
+          ),
+        ],
       ),
     ),
   );
