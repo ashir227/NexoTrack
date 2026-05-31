@@ -13,9 +13,13 @@ class PortfolioModel {
   @HiveField(2)
   final double buyPrice;
 
+  @HiveField(3)
+  final double totalinvest;
+
   PortfolioModel({
     required this.name,
     required this.qty,
     required this.buyPrice,
+    required this.totalinvest,
   });
 }

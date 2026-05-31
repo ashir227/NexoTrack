@@ -1,3 +1,5 @@
+import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart';
+
 import 'package:flutter/material.dart';
 import 'package:nexotrack/Core/theme/color.dart';
 import 'package:nexotrack/Core/widgets/Custmtxtfld.dart';
@@ -20,19 +22,19 @@ class Addcoin extends StatefulWidget {
 }
 
 class _AddcoinState extends State<Addcoin> {
+  final _formKey = GlobalKey<FormState>();
   CryptoModel? selcoin;
+  final namecntrl = TextEditingController();
+  final Qtycntrl = TextEditingController();
+  final totalamntcntrl = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    final namecntrl = TextEditingController();
-    final Qtycntrl = TextEditingController();
-    final totalamntcntrl = TextEditingController();
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     var Apipro = context.watch<CryptoPro>();
     var funcpro = context.read<FuncPro>();
     // var pros = context.watch<CryptoModel>();
 
-    CryptoModel? selcoin;
     return Scaffold(
       backgroundColor: PrimaryColor.BckColor,
       body: SingleChildScrollView(
@@ -52,6 +54,7 @@ class _AddcoinState extends State<Addcoin> {
               SizedBox(height: h * 0.04),
 
               Form(
+                key: _formKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -107,21 +110,28 @@ class _AddcoinState extends State<Addcoin> {
                       ),
                       context: context,
                       onpressed: () {
-                        if (selcoin == null) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('Please select coin!')),
+                        if (_formKey.currentState!.validate()) {
+                          final qty = double.parse(Qtycntrl.text);
+                          if (selcoin == null) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text('Please select coin!')),
+                            );
+                            return;
+                          }
+                          PortfolioModel addcoin = PortfolioModel(
+                            name: selcoin!.name,
+                            qty: qty,
+                            buyPrice: selcoin!.price,
+                            totalinvest: selcoin!.price * qty,
                           );
-                          return;
+                          final addresult = funcpro.addcoinpro(addcoin);
+                          if (addresult == null) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text("Coin Added!")),
+                            );
+                          }
+                          Qtycntrl.clear();
                         }
-                        PortfolioModel addcoin = PortfolioModel(
-                          name: selcoin!.name,
-                          qty: double.parse(Qtycntrl.text),
-                          buyPrice: double.parse(totalamntcntrl.text),
-                        );
-                        funcpro.TotalAmnt(
-                          selcoin!,
-                          double.parse(Qtycntrl.text),
-                        );
                       },
                       text: "Add Coin",
                     ),

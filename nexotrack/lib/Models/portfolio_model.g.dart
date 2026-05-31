@@ -20,6 +20,7 @@ class PortfolioModelAdapter extends TypeAdapter<PortfolioModel> {
       name: fields[0] as String,
       qty: fields[1] as double,
       buyPrice: fields[2] as double,
+      totalinvest: fields[3] as double,
     );
   }
 
@@ -32,7 +33,9 @@ class PortfolioModelAdapter extends TypeAdapter<PortfolioModel> {
       ..writeByte(1)
       ..write(obj.qty)
       ..writeByte(2)
-      ..write(obj.buyPrice);
+      ..write(obj.buyPrice)
+      ..writeByte(3)
+      ..write(obj.totalinvest);
   }
 
   @override
