@@ -25,49 +25,46 @@ class Mainnscr extends StatelessWidget {
         backgroundColor: PrimaryColor.BckColor,
       ),
       backgroundColor: PrimaryColor.BckColor,
-      body: Column(
-        children: [
-          SizedBox(height: h * 0.04),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Cards(context, "Total Value", "value"),
-              Cards(context, "Invested", "value"),
-              Cards(context, "Profit/Loss", 'value'),
-            ],
-          ),
-          SizedBox(height: h * 0.06),
-          ElevBtn(
-            context: context,
-            onpressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Coinlist()),
-              );
-            },
-            text:
-                "📊 View All Coins Prices \n See current rates of all cryptocurrencies",
-            paddings: EdgeInsets.symmetric(
-              horizontal: w * 0.033,
-              vertical: h * 0.015,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(height: h * 0.04),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Cards(context, "Total Value", "value"),
+                Cards(context, "Invested", "value"),
+                Cards(context, "Profit/Loss", 'value'),
+              ],
             ),
-          ),
-          SizedBox(height: h * 0.05),
-          ElevBtn(
-            context: context,
-            onpressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Addcoin()),
-              );
-            },
-            text: "Add Coin",
-            paddings: EdgeInsets.symmetric(
-              horizontal: w * 0.36,
-              vertical: h * 0.02,
+            SizedBox(height: h * 0.06),
+            ElevBtn(
+              context: context,
+              onpressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Coinlist()),
+                );
+              },
+              text: "📊 View All Coins Prices",
+              width: w * 0.9,
+              height: h * 0.07,
             ),
-          ),
-        ],
+            SizedBox(height: h * 0.05),
+            ElevBtn(
+              context: context,
+              onpressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Addcoin()),
+                );
+              },
+              text: "Add Cryptocurrency",
+              width: w * 0.9,
+              height: h * 0.06,
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -102,10 +102,8 @@ class _AddcoinState extends State<Addcoin> {
                     AmountCrd(selcoin: selcoin),
                     SizedBox(height: h * 0.19),
                     ElevBtn(
-                      paddings: EdgeInsets.symmetric(
-                        horizontal: w * 0.38,
-                        vertical: h * 0.013,
-                      ),
+                      width: w * 0.9,
+                      height: h * 0.07,
                       context: context,
                       onpressed: () {
                         if (_formKey.currentState!.validate()) {
@@ -125,7 +123,15 @@ class _AddcoinState extends State<Addcoin> {
                           final addresult = funcpro.addcoinpro(addcoin);
                           if (addresult == null) {
                             ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text("Coin Added!")),
+                              SnackBar(
+                                content: Text(
+                                  "Coin Added!",
+                                  style: TextStyle(
+                                    color: SecColor.borderclr,
+                                    fontSize: 15,
+                                  ),
+                                ),
+                              ),
                             );
                           }
                           Qtycntrl.clear();
