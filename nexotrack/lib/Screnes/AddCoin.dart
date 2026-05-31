@@ -8,6 +8,7 @@ import 'package:nexotrack/Core/widgets/text.dart';
 import 'package:nexotrack/Models/ApiModel.dart';
 import 'package:nexotrack/Models/portfolio_model.dart';
 import 'package:nexotrack/Provider/ApiPro.dart';
+import 'package:nexotrack/Provider/FunctionsPro.dart';
 import 'package:nexotrack/Screnes/MainScr.dart';
 import 'package:provider/provider.dart';
 
@@ -27,10 +28,11 @@ class _AddcoinState extends State<Addcoin> {
     final totalamntcntrl = TextEditingController();
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
-    var pro = context.watch<CryptoPro>();
+    var Apipro = context.watch<CryptoPro>();
+    var funcpro = context.read<FuncPro>();
     // var pros = context.watch<CryptoModel>();
 
-    // CryptoModel? selcoin;
+    CryptoModel? selcoin;
     return Scaffold(
       backgroundColor: PrimaryColor.BckColor,
       body: SingleChildScrollView(
@@ -68,7 +70,7 @@ class _AddcoinState extends State<Addcoin> {
                           selcoin = value;
                         });
                       },
-                      coins: pro.Coinslst,
+                      coins: Apipro.Coinslst,
                     ),
                     SizedBox(height: h * 0.04),
                     reusetext(
@@ -107,9 +109,7 @@ class _AddcoinState extends State<Addcoin> {
                       onpressed: () {
                         if (selcoin == null) {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                              content: Text('Pehle coin select karein!'),
-                            ),
+                            SnackBar(content: Text('Please select coin!')),
                           );
                           return;
                         }
@@ -117,6 +117,10 @@ class _AddcoinState extends State<Addcoin> {
                           name: selcoin!.name,
                           qty: double.parse(Qtycntrl.text),
                           buyPrice: double.parse(totalamntcntrl.text),
+                        );
+                        funcpro.TotalAmnt(
+                          selcoin!,
+                          double.parse(Qtycntrl.text),
                         );
                       },
                       text: "Add Coin",
