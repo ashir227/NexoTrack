@@ -84,7 +84,7 @@ class _AddcoinState extends State<Addcoin> {
                     SizedBox(height: h * 0.01),
                     CstmFld(
                       validator: (value) {
-                        if (value == null) {
+                        if (value == null || value.isEmpty) {
                           return "Please enter Valid Qty";
                         }
                         double? numm = double.tryParse(value);
