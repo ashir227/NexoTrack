@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:nexotrack/Provider/ApiPro.dart';
 import 'package:nexotrack/Provider/FunctionsPro.dart';
+import 'package:nexotrack/Provider/LoginPro.dart';
 import 'package:nexotrack/Screnes/Splash.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
@@ -15,12 +16,14 @@ void main() async {
 
   await Hive.initFlutter(path.path);
   await Hive.openBox("mycoin");
+  await Hive.openBox("login");
 
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => CryptoPro()),
         ChangeNotifierProvider(create: (_) => FuncPro()),
+        ChangeNotifierProvider(create: (_) => LoginPro()),
       ],
       child: const MyApp(),
     ),

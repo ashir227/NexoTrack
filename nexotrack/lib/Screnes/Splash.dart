@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:nexotrack/Screnes/Login.dart';
+import 'package:nexotrack/Screnes/MainScr.dart';
 
 class SpalshScr extends StatefulWidget {
   const SpalshScr({super.key});
@@ -14,12 +16,19 @@ class _SpalshScrState extends State<SpalshScr> {
     super.initState();
 
     Future.delayed(const Duration(seconds: 4), () {
-      if (!mounted) return;
-
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => LoginScr()),
-      );
+      var box = Hive.box("login");
+      bool islogin = box.get("islogin", defaultValue: false);
+      if (islogin) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => Mainnscr()),
+        );
+      } else {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => LoginScr()),
+        );
+      }
     });
   }
 
