@@ -19,7 +19,7 @@ class Mainnscr extends StatelessWidget {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     final mycoin = context.read<FuncPro>().MyCoin;
-    // final secpro = context.watch<CryptoModel>();
+    final secpro = context.read<CryptoModel>();
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -127,10 +127,9 @@ class Mainnscr extends StatelessWidget {
                                     prolist.totalinvest.toString(),
                                     style: TextStyle(color: SecColor.textwhclr),
                                   ),
-                                  // Text(
-                                  //   // secpro.change24h.toString(),
-                                  //   // style: TextStyle(color: SecColor.textwhclr),
-                                  // ),
+                                  Text(
+                                    (" ${prolist.buyPrice.toString() / secpro.price.toString()}"),
+                                  ),
                                 ],
                               ),
                             ],
