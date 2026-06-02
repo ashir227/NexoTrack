@@ -18,4 +18,10 @@ class FuncPro extends ChangeNotifier {
 
     return percent;
   }
+
+  loadcoinlist() {
+    var box = Hive.box("mycoin");
+    MyCoin = box.values.cast<PortfolioModel>().toList();
+    notifyListeners();
+  }
 }
