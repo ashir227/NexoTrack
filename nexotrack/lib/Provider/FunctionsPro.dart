@@ -5,18 +5,17 @@ import 'package:nexotrack/Models/portfolio_model.dart';
 
 class FuncPro extends ChangeNotifier {
   List<PortfolioModel> MyCoin = [];
-  late PortfolioModel Addcoin;
-  late CryptoModel itemapi;
-  addcoinpro(PortfolioModel Addcoin) {
+  // late CryptoModel itemapi;
+  addcoinpro(PortfolioModel addcoin) {
+    MyCoin.add(addcoin);
     var box = Hive.box("mycoin");
-    box.add(Addcoin);
-    MyCoin = box.values.cast<PortfolioModel>().toList();
+    box.add(addcoin);
     notifyListeners();
-    return null;
   }
 
-  currentpercent() {
-    var percent = ((itemapi.price - Addcoin.buyPrice) / Addcoin.buyPrice) * 100;
+  currentpercent(PortfolioModel Addcoin, double currentPrice) {
+    var percent = ((currentPrice - Addcoin.buyPrice) / Addcoin.buyPrice) * 100;
+
     return percent;
   }
 }

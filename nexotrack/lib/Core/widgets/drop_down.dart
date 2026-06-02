@@ -63,7 +63,7 @@ class Drop extends StatelessWidget {
                   style: TextStyle(color: SecColor.textwhclr),
                 ),
                 Text(
-                  "\$ ${coin.price.toString()}",
+                  "\$ ${coin.price.toStringAsFixed(4)}",
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(color: SecColor.textwhclr),
                 ),

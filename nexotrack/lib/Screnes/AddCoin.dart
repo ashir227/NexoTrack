@@ -135,6 +135,7 @@ class _AddcoinState extends State<Addcoin> {
                             );
                           }
                           Qtycntrl.clear();
+                          Navigator.pop(context);
                         }
                       },
                       text: "Add Coin",

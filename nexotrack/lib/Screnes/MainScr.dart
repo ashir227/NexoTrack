@@ -18,8 +18,10 @@ class Mainnscr extends StatelessWidget {
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
-    final mycoin = context.read<FuncPro>().MyCoin;
-    final secpro = context.read<CryptoModel>();
+    final mycoin = context.watch<FuncPro>();
+
+    // final secpro = context.read<CryptoModel>();
+    CryptoModel apipro;
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -103,9 +105,7 @@ class Mainnscr extends StatelessWidget {
                           ],
                         ),
                         child: Padding(
-                          padding: EdgeInsetsGeometry.symmetric(
-                            horizontal: w * 0.02,
-                          ),
+                          padding: EdgeInsets.symmetric(horizontal: w * 0.02),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -113,7 +113,10 @@ class Mainnscr extends StatelessWidget {
                                 children: [
                                   Text(
                                     prolist.name,
-                                    style: TextStyle(color: SecColor.textwhclr),
+                                    style: TextStyle(
+                                      color: SecColor.textwhclr,
+                                      fontSize: w * 0.05,
+                                    ),
                                   ),
                                   Text(
                                     prolist.qty.toString(),
@@ -124,12 +127,10 @@ class Mainnscr extends StatelessWidget {
                               Column(
                                 children: [
                                   Text(
-                                    prolist.totalinvest.toString(),
+                                    prolist.totalinvest.toStringAsFixed(2),
                                     style: TextStyle(color: SecColor.textwhclr),
                                   ),
-                                  Text(
-                                    (" ${prolist.buyPrice.toString() / secpro.price.toString()}"),
-                                  ),
+                                  // Text((" ${mycoin.currentpercent(prolist, currentPrice)}")),
                                 ],
                               ),
                             ],
