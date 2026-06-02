@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nexotrack/Core/theme/color.dart';
 import 'package:nexotrack/Core/widgets/cards.dart';
 import 'package:nexotrack/Core/widgets/elevButn.dart';
+import 'package:nexotrack/Core/widgets/text.dart';
 import 'package:nexotrack/Models/ApiModel.dart';
 import 'package:nexotrack/Models/portfolio_model.dart';
 import 'package:nexotrack/Provider/ApiPro.dart';
@@ -74,6 +75,20 @@ class Mainnscr extends StatelessWidget {
                 width: w * 0.9,
                 height: h * 0.06,
               ),
+              SizedBox(height: h * 0.01),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: w * 0.03),
+                width: double.infinity,
+                decoration: BoxDecoration(color: PrimaryColor.CrdColor),
+                child: reusetext(
+                  context: context,
+                  clr: SecColor.textwhclr,
+                  Size: w * 0.07,
+                  txt: "Your Holdings",
+                  FontWeight: FontWeight.w700,
+                ),
+              ),
+              SizedBox(height: h * 0.009),
               Expanded(
                 child: ListView.builder(
                   itemCount: pro.MyCoin.length,
@@ -89,7 +104,10 @@ class Mainnscr extends StatelessWidget {
                         );
                       },
                       child: Container(
-                        margin: EdgeInsets.symmetric(vertical: h * 0.008),
+                        margin: EdgeInsets.symmetric(
+                          vertical: h * 0.008,
+                          horizontal: w * 0.03,
+                        ),
                         padding: EdgeInsets.symmetric(
                           vertical: h * 0.015,
                           horizontal: w * 0.01,
