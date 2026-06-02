@@ -75,7 +75,7 @@ class Mainnscr extends StatelessWidget {
                 width: w * 0.9,
                 height: h * 0.06,
               ),
-              SizedBox(height: h * 0.01),
+              SizedBox(height: h * 0.02),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: w * 0.03),
                 width: double.infinity,
@@ -118,7 +118,7 @@ class Mainnscr extends StatelessWidget {
                           boxShadow: [
                             BoxShadow(
                               blurRadius: 4,
-                              color: Colors.grey.shade300,
+                              color: const Color.fromARGB(255, 60, 125, 190),
                             ),
                           ],
                         ),
