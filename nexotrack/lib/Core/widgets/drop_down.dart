@@ -57,7 +57,7 @@ class Drop extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  coin.name.toUpperCase(),
+                  "${coin.name[0].toUpperCase()}${coin.name.substring(1).toLowerCase()}",
                   overflow: TextOverflow.ellipsis,
 
                   style: TextStyle(color: SecColor.textwhclr),

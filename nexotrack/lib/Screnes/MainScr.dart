@@ -130,23 +130,28 @@ class Mainnscr extends StatelessWidget {
                               Column(
                                 children: [
                                   Text(
-                                    prolist.name,
+                                    "${prolist.name[0].toUpperCase()}${prolist.name.substring(1).toLowerCase()}",
                                     style: TextStyle(
                                       color: SecColor.textwhclr,
-                                      fontSize: w * 0.05,
+                                      fontSize: w * 0.055,
+                                      fontWeight: FontWeight.w700,
                                     ),
                                   ),
                                   Text(
-                                    prolist.qty.toString(),
-                                    style: TextStyle(color: SecColor.textwhclr),
+                                    "${prolist.qty.toString()} coins",
+                                    style: TextStyle(color: SecColor.textgrclr),
                                   ),
                                 ],
                               ),
                               Column(
                                 children: [
                                   Text(
-                                    prolist.totalinvest.toStringAsFixed(2),
-                                    style: TextStyle(color: SecColor.textwhclr),
+                                    "\$${prolist.totalinvest.toStringAsFixed(2)}",
+                                    style: TextStyle(
+                                      color: SecColor.textwhclr,
+                                      fontSize: w * 0.05,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                   // Text((" ${mycoin.currentpercent(prolist, currentPrice)}")),
                                 ],
