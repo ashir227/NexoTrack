@@ -1,27 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:nexotrack/Core/theme/color.dart';
 import 'package:nexotrack/Core/widgets/text.dart';
+import 'package:nexotrack/Models/ApiModel.dart';
+import 'package:nexotrack/Models/portfolio_model.dart';
+import 'package:nexotrack/Provider/FunctionsPro.dart';
+import 'package:nexotrack/Services/Api.dart';
+import 'package:provider/provider.dart';
 
 class coindetails extends StatelessWidget {
   const coindetails({super.key});
+
+  get index => null;
 
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
     final h = MediaQuery.of(context).size.height;
+    final apipro = context.watch<CryptoApi>();
+    final funcpro = context.watch<FuncPro>();
+    CryptoModel cryptoModel;
+    final PortfolioModel coin;
 
     return Scaffold(
       backgroundColor: Colors.black,
       body: Container(
         width: double.infinity,
         padding: EdgeInsets.symmetric(horizontal: w * 0.05, vertical: h * 0.05),
+
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            reusetext(
+              context: context,
+              clr: SecColor.textwhclr,
+              Size: w * 0.003,
+              txt: funcpro.MyCoin[index].name,
+              FontWeight: FontWeight,
+            ),
             Image.asset(
               "assets/images/c_logo.jpg",
-              height: h * 0.25,
-              width: w * 0.45,
+              height: h * 0.20,
+              width: w * 0.40,
             ),
 
             SizedBox(height: h * 0.02),
