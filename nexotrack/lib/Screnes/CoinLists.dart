@@ -69,7 +69,7 @@ class _CoinlistState extends State<Coinlist> {
                 child: ListTile(
                   tileColor: SecColor.textfldbg,
                   title: Text(
-                    "${coin.name}",
+                    "${coin.name[0].toUpperCase()}${coin.name.substring(1).toLowerCase()}",
                     style: TextStyle(color: SecColor.textwhclr),
                   ),
 

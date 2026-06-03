@@ -55,7 +55,8 @@ class Mainnscr extends StatelessWidget {
                 onpressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Coinlist()),
+                    MaterialPageRoute
+                    (builder: (context) => Coinlist()),
                   );
                 },
                 text: "📊 View All Coins Prices",
