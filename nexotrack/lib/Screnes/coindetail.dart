@@ -3,23 +3,25 @@ import 'package:nexotrack/Core/theme/color.dart';
 import 'package:nexotrack/Core/widgets/text.dart';
 import 'package:nexotrack/Models/ApiModel.dart';
 import 'package:nexotrack/Models/portfolio_model.dart';
-import 'package:nexotrack/Provider/FunctionsPro.dart';
-import 'package:nexotrack/Services/Api.dart';
-import 'package:provider/provider.dart';
+// import 'package:nexotrack/Provider/FunctionsPro.dart';
+// import 'package:nexotrack/Services/Api.dart';
+// import 'package:provider/provider.dart';
 
 class coindetails extends StatelessWidget {
-  const coindetails({super.key});
+  final PortfolioModel coin;
+  const coindetails({super.key, required this.coin});
 
-  get index => null;
+  // get index => null;
 
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
     final h = MediaQuery.of(context).size.height;
-    final apipro = context.watch<CryptoApi>();
-    final funcpro = context.watch<FuncPro>();
-    CryptoModel cryptoModel;
-    final PortfolioModel coin;
+    // final apipro = context.watch<CryptoApi>();
+    // final funcpro = context.watch<FuncPro>();
+
+    // CryptoModel cryptoModel;
+    // final PortfolioModel coin;
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -33,9 +35,10 @@ class coindetails extends StatelessWidget {
             reusetext(
               context: context,
               clr: SecColor.textwhclr,
-              Size: w * 0.003,
-              txt: funcpro.MyCoin[index].name,
-              FontWeight: FontWeight,
+              Size: w * 0.06,
+              txt:
+                  "${coin.name[0].toUpperCase()}${coin.name.substring(1).toLowerCase()}",
+              FontWeight: FontWeight.w500,
             ),
             Image.asset(
               "assets/images/c_logo.jpg",

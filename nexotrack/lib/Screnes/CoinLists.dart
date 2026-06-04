@@ -65,7 +65,8 @@ class _CoinlistState extends State<Coinlist> {
             itemBuilder: (context, index) {
               final coin = provider.Coinslst[index];
               return Card(
-                margin: const EdgeInsets.symmetric(horizontal: 22, vertical: 6),
+                margin: const EdgeInsets.symmetric(horizontal: 22, 
+                vertical: 6),
                 child: ListTile(
                   tileColor: SecColor.textfldbg,
                   title: Text(
@@ -80,7 +81,8 @@ class _CoinlistState extends State<Coinlist> {
                   trailing: Text(
                     "${coin.change24h.toStringAsFixed(2)}%",
                     style: TextStyle(
-                      color: coin.change24h >= 0 ? Colors.green : Colors.red,
+                      color: coin.change24h >= 0 ? Colors.green
+                       : Colors.red,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

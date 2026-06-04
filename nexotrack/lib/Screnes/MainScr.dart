@@ -20,7 +20,7 @@ class Mainnscr extends StatelessWidget {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
     final mycoin = context.watch<FuncPro>();
-
+    PortfolioModel coin;
     // final secpro = context.read<CryptoModel>();
     CryptoModel apipro;
     return Scaffold(
@@ -99,7 +99,7 @@ class Mainnscr extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => coindetails(),
+                            builder: (context) => coindetails(coin: prolist),
                           ),
                         );
                       },
