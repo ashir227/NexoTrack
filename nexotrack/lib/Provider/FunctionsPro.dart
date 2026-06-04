@@ -6,7 +6,7 @@ import 'package:nexotrack/Models/portfolio_model.dart';
 class FuncPro extends ChangeNotifier {
   List<PortfolioModel> MyCoin = [];
   // late CryptoModel itemapi;
-  addcoinpro(PortfolioModel addcoin) {
+  String? addcoinpro(PortfolioModel addcoin) {
     MyCoin.add(addcoin);
     var box = Hive.box("mycoin");
     box.add(addcoin);
