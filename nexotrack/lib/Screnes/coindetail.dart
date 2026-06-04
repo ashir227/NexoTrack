@@ -9,8 +9,8 @@ import 'package:nexotrack/Models/portfolio_model.dart';
 
 class coindetails extends StatelessWidget {
   final PortfolioModel coin;
-  final CryptoModel apicry;
-  const coindetails({super.key, required this.coin, required this.apicry});
+
+  const coindetails({super.key, required this.coin});
 
   // get index => null;
 
@@ -56,13 +56,13 @@ class coindetails extends StatelessWidget {
               txt: "${coin.totalinvest}",
               FontWeight: FontWeight.w800,
             ),
-            reusetext(
-              context: context,
-              clr: SecColor.borderclr,
-              Size: 20,
-              txt: "${apicry.change24h}",
-              FontWeight: FontWeight.w800,
-            ),
+            // reusetext(
+            //   context: context,
+            //   clr: SecColor.borderclr,
+            //   Size: 20,
+            //   txt: "${}",
+            //   FontWeight: FontWeight.w800,
+            // ),
           ],
         ),
       ),

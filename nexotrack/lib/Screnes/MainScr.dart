@@ -19,10 +19,11 @@ class Mainnscr extends StatelessWidget {
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
-    final mycoin = context.watch<FuncPro>();
+    // final mycoin = context.watch<FuncPro>().MyCoin;
     PortfolioModel coin;
+
     // final secpro = context.read<CryptoModel>();
-    CryptoModel apipro;
+    // CryptoModel apipro;
     return Scaffold(
       appBar: AppBar(
         title: Text(

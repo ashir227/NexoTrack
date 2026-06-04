@@ -27,7 +27,7 @@ class PortfolioModelAdapter extends TypeAdapter<PortfolioModel> {
   @override
   void write(BinaryWriter writer, PortfolioModel obj) {
     writer
-      ..writeByte(3)
+      ..writeByte(4)
       ..writeByte(0)
       ..write(obj.name)
       ..writeByte(1)
