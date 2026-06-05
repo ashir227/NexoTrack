@@ -37,19 +37,17 @@ class _SpalshScrState extends State<SpalshScr> {
   }
 
   @override
+  @override
   Widget build(BuildContext context) {
-    var h = MediaQuery.of(context).size.height;
-    var w = MediaQuery.of(context).size.width;
-
     return Scaffold(
-      body: Center(
+      body: SizedBox(
+        width: double.infinity,
+        height: double.infinity,
         child: Image.asset(
           "assets/images/splash_pic.jpg",
-          // width: w * 0.5,
-          // height: h * 0.25,
-          fit: BoxFit.fill,
+          fit: BoxFit.cover,
           errorBuilder: (c, e, s) {
-            return const Text("Image not loaded");
+            return const Center(child: Text("Image not loaded"));
           },
         ),
       ),
