@@ -3,6 +3,8 @@ import 'package:nexotrack/Core/theme/color.dart';
 import 'package:nexotrack/Core/widgets/text.dart';
 import 'package:nexotrack/Models/ApiModel.dart';
 import 'package:nexotrack/Models/portfolio_model.dart';
+import 'package:nexotrack/Provider/FunctionsPro.dart';
+import 'package:provider/provider.dart';
 // import 'package:nexotrack/Provider/FunctionsPro.dart';
 // import 'package:nexotrack/Services/Api.dart';
 // import 'package:provider/provider.dart';
@@ -19,7 +21,7 @@ class coindetails extends StatelessWidget {
     final w = MediaQuery.of(context).size.width;
     final h = MediaQuery.of(context).size.height;
     // final apipro = context.watch<CryptoApi>();
-    // final funcpro = context.watch<FuncPro>();
+    final funcpro = context.read<FuncPro>();
 
     // CryptoModel cryptoModel;
     // final PortfolioModel coin;
@@ -56,13 +58,14 @@ class coindetails extends StatelessWidget {
               txt: "${coin.totalinvest}",
               FontWeight: FontWeight.w800,
             ),
-            // reusetext(
-            //   context: context,
-            //   clr: SecColor.borderclr,
-            //   Size: 20,
-            //   txt: "${}",
-            //   FontWeight: FontWeight.w800,
-            // ),
+
+            reusetext(
+              context: context,
+              clr: SecColor.borderclr,
+              Size: 20,
+              txt: funcpro.getChange(context, coin.name).toString(),
+              FontWeight: FontWeight.w800,
+            ),
           ],
         ),
       ),

@@ -28,15 +28,11 @@ class FuncPro extends ChangeNotifier {
     notifyListeners();
   }
 
-  searchCoin(BuildContext context, int index) {
-    final portfolioCoin = context.read<FuncPro>().MyCoin[index].name;
-
+  double getChange(BuildContext context, String coinName) {
     final apiList = context.read<CryptoPro>().Coinslst;
 
-    final matchedCoin = apiList.firstWhere(
-      (coin) => coin.name == portfolioCoin,
-    );
+    final coin = apiList.firstWhere((c) => c.name == coinName);
 
-    return matchedCoin.change24h;
+    return coin.change24h;
   }
 }
