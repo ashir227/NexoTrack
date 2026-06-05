@@ -3,6 +3,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:nexotrack/Models/ApiModel.dart';
 import 'package:nexotrack/Models/portfolio_model.dart';
 import 'package:nexotrack/Provider/ApiPro.dart';
+import 'package:nexotrack/Screnes/CoinLists.dart';
 import 'package:provider/provider.dart';
 
 class FuncPro extends ChangeNotifier {
@@ -27,14 +28,15 @@ class FuncPro extends ChangeNotifier {
     notifyListeners();
   }
 
-  searchcoin(BuildContext context, index) {
-    final mycoin = context.read<FuncPro>().MyCoin[index].name;
-    final apicoin = context.read<CryptoPro>().Coinslst[index];
-    final nameapi = apicoin.name;
-    if (mycoin == nameapi) {
-      for (var lsst in MyCoin) {
-        return apicoin.change24h;
-      }
-    }
+  searchCoin(BuildContext context, int index) {
+    final portfolioCoin = context.read<FuncPro>().MyCoin[index].name;
+
+    final apiList = context.read<CryptoPro>().Coinslst;
+
+    final matchedCoin = apiList.firstWhere(
+      (coin) => coin.name == portfolioCoin,
+    );
+
+    return matchedCoin.change24h;
   }
 }
