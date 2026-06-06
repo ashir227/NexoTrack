@@ -42,7 +42,27 @@ class FuncPro extends ChangeNotifier {
     return apicoin.price;
   }
 
-  // profitvalue(){
-  //   return getChange(context, coinName)
-  // }
+  double getTotalInvested() {
+    double total = 0;
+
+    for (var coin in MyCoin) {
+      total = coin.totalinvest + coin.totalinvest;
+    }
+
+    return total;
+  }
+
+  double getTotalCurrentValue(BuildContext context) {
+    double total = 0;
+
+    final apiList = context.read<CryptoPro>().Coinslst;
+
+    for (var coin in MyCoin) {
+      final apiCoin = apiList.firstWhere((c) => c.name == coin.name);
+
+      total += coin.qty * apiCoin.price;
+    }
+
+    return total;
+  }
 }
