@@ -74,12 +74,19 @@ class coindetails extends StatelessWidget {
             ),
             SizedBox(height: h * 0.03),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 holdcoininfo(
                   text: "HOLDINGS",
                   text2: "${NumberFormat('#,##0.0').format(coin.qty)} Coins",
                   text3:
                       "\$${NumberFormat('#,##0.00').format(coin.totalinvest)}",
+                ),
+                holdcoininfo(
+                  text: "BUY PRICE",
+                  text2:
+                      "\$${NumberFormat('#,##0.00').format(coin.totalinvest)}",
+                  text3: "Total Invested",
                 ),
               ],
             ),
