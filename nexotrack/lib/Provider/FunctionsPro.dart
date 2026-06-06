@@ -35,4 +35,14 @@ class FuncPro extends ChangeNotifier {
 
     return coin.change24h;
   }
+
+  double getCurrent(BuildContext context, String coinName) {
+    final apiList = context.read<CryptoPro>().Coinslst;
+    final apicoin = apiList.firstWhere((cs) => cs.name == coinName);
+    return apicoin.price;
+  }
+
+  // profitvalue(){
+  //   return getChange(context, coinName)
+  // }
 }

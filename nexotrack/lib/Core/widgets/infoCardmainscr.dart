@@ -6,12 +6,15 @@ class holdcoininfo extends StatelessWidget {
   String text;
   String text2;
   String text3;
-
+  TextStyle? text3Style;
+  TextStyle? text2Style;
   holdcoininfo({
     super.key,
     required this.text,
     required this.text2,
     required this.text3,
+    this.text3Style,
+    this.text2Style,
   });
 
   @override
@@ -55,6 +58,7 @@ class holdcoininfo extends StatelessWidget {
             Size: w * 0.040,
             txt: text3,
             FontWeight: FontWeight.w400,
+            style: text3Style,
           ),
         ],
       ),

@@ -26,6 +26,11 @@ class coindetails extends StatelessWidget {
     // final apipro = context.watch<CryptoApi>();
     final funcpro = context.read<FuncPro>();
     final apipro = context.read<CryptoPro>();
+    final currentValue = coin.qty * funcpro.getCurrent(context, coin.name);
+    final profitLoss =
+        ((funcpro.getCurrent(context, coin.name) * coin.qty) -
+        coin.totalinvest);
+    final percentProfit = (profitLoss / coin.totalinvest) * 100;
     // CryptoModel cryptoModel;
     // final PortfolioModel coin;
 
@@ -58,7 +63,8 @@ class coindetails extends StatelessWidget {
               context: context,
               clr: SecColor.textwhclr,
               Size: 45,
-              txt: "\$${NumberFormat('#,##0.00').format(coin.buyPrice)}",
+              txt:
+                  "\$${NumberFormat('#,##0.00').format(funcpro.getCurrent(context, coin.name))}",
               FontWeight: FontWeight.w500,
             ),
 
@@ -79,13 +85,39 @@ class coindetails extends StatelessWidget {
                 holdcoininfo(
                   text: "HOLDINGS",
                   text2: "${NumberFormat('#,##0.0').format(coin.qty)} Coins",
-                  text3:
-                      "\$${NumberFormat('#,##0.00').format(coin.totalinvest)}",
+                  text3: "\$${NumberFormat('#,##0.00').format(currentValue)}",
                 ),
                 holdcoininfo(
                   text: "BUY PRICE",
                   text2:
-                      "\$${NumberFormat('#,##0.00').format(coin.totalinvest)}",
+                      "\$${NumberFormat('#,##0.00').format((coin.totalinvest))}",
+                  text3: "Total Invested",
+                ),
+              ],
+            ),
+            SizedBox(height: h * 0.03),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                holdcoininfo(
+                  text: "PROFIT/LOSS",
+                  text2: "\$${NumberFormat('#,##0.0').format(profitLoss)}",
+                  text2Style: TextStyle(
+                    color: profitLoss >= 0
+                        ? PrimaryColor.ProftClr
+                        : PrimaryColor.LossClr,
+                  ),
+                  text3: "${NumberFormat('#,##0.00').format(percentProfit)}%",
+                  text3Style: TextStyle(
+                    color: percentProfit >= 0
+                        ? PrimaryColor.ProftClr
+                        : PrimaryColor.LossClr,
+                  ),
+                ),
+                holdcoininfo(
+                  text: "BUY PRICE",
+                  text2:
+                      "\$${NumberFormat('#,##0.00').format((coin.totalinvest))}",
                   text3: "Total Invested",
                 ),
               ],

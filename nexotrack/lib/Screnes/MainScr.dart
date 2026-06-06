@@ -101,7 +101,7 @@ class Mainnscr extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => coindetails(coin: prolist),
+      builder: (context) => coindetails(coin: prolist),
                           ),
                         );
                       },
