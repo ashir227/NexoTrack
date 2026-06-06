@@ -101,7 +101,7 @@ class Mainnscr extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-      builder: (context) => coindetails(coin: prolist),
+                            builder: (context) => coindetails(coin: prolist),
                           ),
                         );
                       },
@@ -120,7 +120,7 @@ class Mainnscr extends StatelessWidget {
                           boxShadow: [
                             BoxShadow(
                               blurRadius: 4,
-                              color: const Color.fromARGB(255, 60, 125, 190),
+                              color: PrimaryColor.BtnColor,
                             ),
                           ],
                         ),

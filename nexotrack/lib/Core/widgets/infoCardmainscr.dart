@@ -28,7 +28,7 @@ class holdcoininfo extends StatelessWidget {
       decoration: BoxDecoration(
         color: PrimaryColor.CrdColor,
         borderRadius: BorderRadius.circular(w * 0.02),
-        boxShadow: [BoxShadow(blurRadius: 4, color: SecColor.brdorng)],
+        boxShadow: [BoxShadow(blurRadius: 5, color: SecColor.borderclr)],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
