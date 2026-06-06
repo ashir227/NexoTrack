@@ -5,19 +5,28 @@ import 'package:nexotrack/Core/widgets/text.dart';
 class holdcoininfo extends StatelessWidget {
   String text;
   String text2;
+  String text3;
 
-  holdcoininfo({super.key, required this.text, required this.text2});
+  holdcoininfo({
+    super.key,
+    required this.text,
+    required this.text2,
+    required this.text3,
+  });
 
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
     final h = MediaQuery.of(context).size.height;
     return Container(
-      // decoration: BoxDecoration(borderRadius: BorderRadius.circular(4)),
       padding: EdgeInsets.only(left: w * 0.03, top: 0.03),
-      height: h * 0.15,
-      width: w * 0.35,
-      color: PrimaryColor.CrdColor,
+      height: h * 0.17,
+      width: w * 0.40,
+      decoration: BoxDecoration(
+        color: PrimaryColor.CrdColor,
+        borderRadius: BorderRadius.circular(w * 0.02),
+        boxShadow: [BoxShadow(blurRadius: 4, color: SecColor.brdorng)],
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -28,7 +37,7 @@ class holdcoininfo extends StatelessWidget {
             clr: SecColor.textgrclr,
             Size: w * 0.043,
             txt: text,
-            FontWeight: FontWeight.w300,
+            FontWeight: FontWeight.w400,
           ),
           SizedBox(height: h * 0.008),
           reusetext(
@@ -36,15 +45,15 @@ class holdcoininfo extends StatelessWidget {
             clr: SecColor.textwhclr,
             Size: w * 0.058,
             txt: text2,
-            FontWeight: FontWeight.w400,
+            FontWeight: FontWeight.w500,
           ),
           SizedBox(height: h * 0.006),
 
           reusetext(
             context: context,
-            clr: SecColor.textwhclr,
+            clr: SecColor.textgrclr,
             Size: w * 0.040,
-            txt: text2,
+            txt: text3,
             FontWeight: FontWeight.w400,
           ),
         ],

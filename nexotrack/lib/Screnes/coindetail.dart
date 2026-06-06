@@ -4,6 +4,7 @@ import 'package:nexotrack/Core/widgets/infoCardmainscr.dart';
 import 'package:nexotrack/Core/widgets/text.dart';
 import 'package:nexotrack/Models/ApiModel.dart';
 import 'package:nexotrack/Models/portfolio_model.dart';
+import 'package:nexotrack/Provider/ApiPro.dart';
 import 'package:nexotrack/Provider/FunctionsPro.dart';
 import 'package:provider/provider.dart';
 // import 'package:nexotrack/Provider/FunctionsPro.dart';
@@ -24,7 +25,7 @@ class coindetails extends StatelessWidget {
     final h = MediaQuery.of(context).size.height;
     // final apipro = context.watch<CryptoApi>();
     final funcpro = context.read<FuncPro>();
-
+    final apipro = context.read<CryptoPro>();
     // CryptoModel cryptoModel;
     // final PortfolioModel coin;
 
@@ -57,7 +58,7 @@ class coindetails extends StatelessWidget {
               context: context,
               clr: SecColor.textwhclr,
               Size: 45,
-              txt: "\$${NumberFormat('#,##0.00').format(coin.totalinvest)}",
+              txt: "\$${NumberFormat('#,##0.00').format(coin.buyPrice)}",
               FontWeight: FontWeight.w500,
             ),
 
@@ -73,7 +74,14 @@ class coindetails extends StatelessWidget {
             ),
             SizedBox(height: h * 0.03),
             Row(
-              children: [holdcoininfo(text: "HOLDINGS", text2: "${coin.qty}")],
+              children: [
+                holdcoininfo(
+                  text: "HOLDINGS",
+                  text2: "${NumberFormat('#,##0.0').format(coin.qty)} Coins",
+                  text3:
+                      "\$${NumberFormat('#,##0.00').format(coin.totalinvest)}",
+                ),
+              ],
             ),
           ],
         ),

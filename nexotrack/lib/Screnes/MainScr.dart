@@ -22,7 +22,7 @@ class Mainnscr extends StatelessWidget {
     double h = MediaQuery.of(context).size.height;
     // final mycoin = context.watch<FuncPro>().MyCoin;
     PortfolioModel coin;
-
+    CryptoModel apicoin;
     // final secpro = context.read<CryptoModel>();
     // CryptoModel apipro;
     return Scaffold(
