@@ -106,12 +106,15 @@ class coindetails extends StatelessWidget {
                     color: profitLoss >= 0
                         ? PrimaryColor.ProftClr
                         : PrimaryColor.LossClr,
+                    fontSize: w * 0.058,
+                    fontWeight: FontWeight.w600,
                   ),
                   text3: "${NumberFormat('#,##0.00').format(percentProfit)}%",
                   text3Style: TextStyle(
                     color: percentProfit >= 0
                         ? PrimaryColor.ProftClr
                         : PrimaryColor.LossClr,
+                    fontSize: w * 0.040,
                   ),
                 ),
                 holdcoininfo(

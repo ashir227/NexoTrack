@@ -49,6 +49,7 @@ class holdcoininfo extends StatelessWidget {
             Size: w * 0.058,
             txt: text2,
             FontWeight: FontWeight.w500,
+            style: text2Style,
           ),
           SizedBox(height: h * 0.006),
 
