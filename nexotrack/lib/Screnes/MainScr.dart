@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:nexotrack/Core/theme/color.dart';
 import 'package:nexotrack/Core/widgets/cards.dart';
 import 'package:nexotrack/Core/widgets/elevButn.dart';
@@ -9,7 +10,7 @@ import 'package:nexotrack/Provider/ApiPro.dart';
 import 'package:nexotrack/Provider/FunctionsPro.dart';
 import 'package:nexotrack/Screnes/AddCoin.dart';
 import 'package:nexotrack/Screnes/CoinLists.dart';
-import 'package:nexotrack/Screnes/coindetail.dart';
+import 'package:nexotrack/Screnes/Coindetail.dart';
 import 'package:provider/provider.dart';
 
 class Mainnscr extends StatelessWidget {
@@ -147,7 +148,7 @@ class Mainnscr extends StatelessWidget {
                               Column(
                                 children: [
                                   Text(
-                                    "\$${prolist.totalinvest.toStringAsFixed(2)}",
+                                    "\$${NumberFormat('#,##0.00').format(prolist.totalinvest)}",
                                     style: TextStyle(
                                       color: SecColor.textwhclr,
                                       fontSize: w * 0.05,

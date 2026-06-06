@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 
 class FuncPro extends ChangeNotifier {
   List<PortfolioModel> MyCoin = [];
-  // late CryptoModel itemapi;
+
   String? addcoinpro(PortfolioModel addcoin) {
     MyCoin.add(addcoin);
     var box = Hive.box("mycoin");

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:nexotrack/Core/theme/color.dart';
 import 'package:nexotrack/Models/ApiModel.dart';
 import 'package:nexotrack/Provider/ApiPro.dart';
@@ -65,8 +66,7 @@ class _CoinlistState extends State<Coinlist> {
             itemBuilder: (context, index) {
               final coin = provider.Coinslst[index];
               return Card(
-                margin: const EdgeInsets.symmetric(horizontal: 22, 
-                vertical: 6),
+                margin: const EdgeInsets.symmetric(horizontal: 22, vertical: 6),
                 child: ListTile(
                   tileColor: SecColor.textfldbg,
                   title: Text(
@@ -75,14 +75,13 @@ class _CoinlistState extends State<Coinlist> {
                   ),
 
                   subtitle: Text(
-                    "\$ ${coin.price}",
+                    "\$ ${NumberFormat('#,##0.00').format(coin.price)}",
                     style: TextStyle(color: SecColor.textgrclr),
                   ),
                   trailing: Text(
-                    "${coin.change24h.toStringAsFixed(2)}%",
+                    "${NumberFormat('#,##0.00').format(coin.change24h)}%",
                     style: TextStyle(
-                      color: coin.change24h >= 0 ? Colors.green
-                       : Colors.red,
+                      color: coin.change24h >= 0 ? Colors.green : Colors.red,
                       fontWeight: FontWeight.bold,
                     ),
                   ),

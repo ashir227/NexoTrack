@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nexotrack/Core/theme/color.dart';
+import 'package:nexotrack/Core/widgets/infoCardmainscr.dart';
 import 'package:nexotrack/Core/widgets/text.dart';
 import 'package:nexotrack/Models/ApiModel.dart';
 import 'package:nexotrack/Models/portfolio_model.dart';
@@ -8,6 +9,7 @@ import 'package:provider/provider.dart';
 // import 'package:nexotrack/Provider/FunctionsPro.dart';
 // import 'package:nexotrack/Services/Api.dart';
 // import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
 
 class coindetails extends StatelessWidget {
   final PortfolioModel coin;
@@ -53,18 +55,25 @@ class coindetails extends StatelessWidget {
 
             reusetext(
               context: context,
-              clr: SecColor.borderclr,
-              Size: 20,
-              txt: "${coin.totalinvest}",
-              FontWeight: FontWeight.w800,
+              clr: SecColor.textwhclr,
+              Size: 45,
+              txt: "\$${NumberFormat('#,##0.00').format(coin.totalinvest)}",
+              FontWeight: FontWeight.w500,
             ),
 
             reusetext(
               context: context,
-              clr: SecColor.borderclr,
-              Size: 20,
-              txt: funcpro.getChange(context, coin.name).toString(),
+              clr: funcpro.getChange(context, coin.name) >= 0
+                  ? Colors.green
+                  : Colors.red,
+              Size: 18,
+              txt:
+                  "${funcpro.getChange(context, coin.name).toStringAsFixed(2)}% today",
               FontWeight: FontWeight.w800,
+            ),
+            SizedBox(height: h * 0.03),
+            Row(
+              children: [holdcoininfo(text: "HOLDINGS", text2: "${coin.qty}")],
             ),
           ],
         ),

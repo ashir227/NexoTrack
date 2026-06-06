@@ -13,4 +13,5 @@ class SecColor {
   static const Color textwhclr = Color(0xFFFFFFFF);
   static const Color textgrclr = Color(0xFF9E9E9E);
   static const Color textfldbg = Color(0xFF1E293B);
+  static const Color brdorng = Color(0xFFF7931A);
 }
