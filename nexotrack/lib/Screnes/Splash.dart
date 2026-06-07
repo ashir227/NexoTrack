@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:nexotrack/Provider/ApiPro.dart';
 import 'package:nexotrack/Provider/FunctionsPro.dart';
 import 'package:nexotrack/Screnes/Login.dart';
 import 'package:nexotrack/Screnes/MainScr.dart';
@@ -17,6 +18,7 @@ class _SpalshScrState extends State<SpalshScr> {
   void initState() {
     super.initState();
     Future.microtask(() {
+      context.read<CryptoPro>().fetchcoin();
       Provider.of<FuncPro>(context, listen: false).loadcoinlist();
     });
     Future.delayed(const Duration(seconds: 4), () {

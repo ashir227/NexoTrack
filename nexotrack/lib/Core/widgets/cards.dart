@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nexotrack/Core/theme/color.dart';
 
 Widget Cards(BuildContext context, String txt, String value) {
   double w = MediaQuery.of(context).size.width;
@@ -9,9 +10,9 @@ Widget Cards(BuildContext context, String txt, String value) {
     width: w * 0.30,
     child: Card(
       margin: EdgeInsets.zero,
-      color: Colors.white,
-      elevation: 3.5,
-      shadowColor: const Color.fromARGB(255, 207, 205, 205),
+      color: PrimaryColor.CrdColor,
+      elevation: 6,
+      shadowColor: SecColor.borderclr,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       child: Padding(
         padding: EdgeInsets.all(w * 0.03),
@@ -43,8 +44,22 @@ Widget Cards(BuildContext context, String txt, String value) {
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
                 style: TextStyle(
-                  fontSize: w * 0.045,
+                  fontSize: w * 0.06,
                   fontWeight: FontWeight.w700,
+                  color: SecColor.textwhclr,
+                ),
+              ),
+            ),
+            SizedBox(height: w * 0.02),
+            Flexible(
+              child: Text(
+                value,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 2,
+                style: TextStyle(
+                  fontSize: w * 0.034,
+                  fontWeight: FontWeight.w700,
+                  color: SecColor.textgrclr,
                 ),
               ),
             ),

@@ -120,7 +120,11 @@ class _AddcoinState extends State<Addcoin> {
                             buyPrice: selcoin!.price,
                             totalinvest: selcoin!.price * qty,
                           );
-                          final addresult = funcpro.addcoinpro(addcoin);
+                          final addresult = funcpro.addcoinpro(
+                            addcoin,
+                            selcoin!.name,
+                            context,
+                          );
                           if (addresult == null) {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(

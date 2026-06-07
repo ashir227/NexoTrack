@@ -14,44 +14,73 @@ import 'package:nexotrack/Screnes/Coindetail.dart';
 import 'package:provider/provider.dart';
 
 class Mainnscr extends StatelessWidget {
-  const Mainnscr({super.key});
+  Mainnscr({super.key});
 
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
-    // final mycoin = context.watch<FuncPro>().MyCoin;
-    PortfolioModel coin;
-    CryptoModel apicoin;
-    // final secpro = context.read<CryptoModel>();
-    // CryptoModel apipro;
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Portfolio",
-          style: TextStyle(
-            color: SecColor.textwhclr,
-            fontSize: w * 0.1,
-            fontWeight: FontWeight.w700,
+
+    return Consumer2<CryptoPro, FuncPro>(
+      builder: (context, proapi, pro, _) {
+        // ✅ LOADING CHECK (IMPORTANT FIX)
+        if (proapi.isload) {
+          return Scaffold(
+            body: Center(
+              child: CircularProgressIndicator(
+                backgroundColor: PrimaryColor.BckColor,
+                color: PrimaryColor.BtnColor,
+              ),
+            ),
+          );
+        }
+
+        // ❌ ERROR CHECK
+        if (proapi.error != null) {
+          return Scaffold(body: Center(child: Text("Error: ${proapi.error}")));
+        }
+
+        final invested = pro.getTotalInvested();
+        final current = pro.getTotalCurrentValue(context);
+        final profit = current - invested;
+        final proNum = context.read<FuncPro>();
+        return Scaffold(
+          appBar: AppBar(
+            title: Text(
+              "Portfolio",
+              style: TextStyle(
+                color: SecColor.textwhclr,
+                fontSize: w * 0.1,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            backgroundColor: PrimaryColor.BckColor,
           ),
-        ),
-        backgroundColor: PrimaryColor.BckColor,
-      ),
-      backgroundColor: PrimaryColor.BckColor,
-      body: Consumer<FuncPro>(
-        builder: (context, pro, _) {
-          return Column(
+          backgroundColor: PrimaryColor.BckColor,
+
+          body: Column(
             children: [
               SizedBox(height: h * 0.04),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Cards(context, "Total Value", "value"),
-                  Cards(context, "Invested", "value"),
-                  Cards(context, "Profit/Loss", 'value'),
+                  Cards(
+                    context,
+                    "Total Value",
+                    "\$${pro.formatAmount(current)}",
+                  ),
+                  Cards(context, "Invested", "\$${pro.formatAmount(invested)}"),
+                  Cards(
+                    context,
+                    "Profit/Loss",
+                    "\$${pro.formatAmount(profit)}",
+                  ),
                 ],
               ),
+
               SizedBox(height: h * 0.06),
+
               ElevBtn(
                 context: context,
                 onpressed: () {
@@ -64,7 +93,9 @@ class Mainnscr extends StatelessWidget {
                 width: w * 0.9,
                 height: h * 0.07,
               ),
+
               SizedBox(height: h * 0.05),
+
               ElevBtn(
                 context: context,
                 onpressed: () {
@@ -77,7 +108,9 @@ class Mainnscr extends StatelessWidget {
                 width: w * 0.9,
                 height: h * 0.06,
               ),
+
               SizedBox(height: h * 0.02),
+
               Container(
                 margin: EdgeInsets.symmetric(horizontal: w * 0.03),
                 width: double.infinity,
@@ -90,12 +123,15 @@ class Mainnscr extends StatelessWidget {
                   FontWeight: FontWeight.w700,
                 ),
               ),
+
               SizedBox(height: h * 0.009),
+
               Expanded(
                 child: ListView.builder(
                   itemCount: pro.MyCoin.length,
                   itemBuilder: (context, index) {
                     final prolist = pro.MyCoin[index];
+
                     return GestureDetector(
                       onTap: () {
                         Navigator.push(
@@ -140,7 +176,7 @@ class Mainnscr extends StatelessWidget {
                                     ),
                                   ),
                                   Text(
-                                    "${prolist.qty.toString()} coins",
+                                    "${prolist.qty} coins",
                                     style: TextStyle(color: SecColor.textgrclr),
                                   ),
                                 ],
@@ -155,7 +191,6 @@ class Mainnscr extends StatelessWidget {
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
-                                  // Text((" ${mycoin.currentpercent(prolist, currentPrice)}")),
                                 ],
                               ),
                             ],
@@ -167,9 +202,9 @@ class Mainnscr extends StatelessWidget {
                 ),
               ),
             ],
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }
