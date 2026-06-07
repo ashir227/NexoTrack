@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:nexotrack/Core/theme/color.dart';
 
-Widget Cards(BuildContext context, String txt, String value) {
+Widget Cards(
+  BuildContext context,
+  String txt,
+  String value,
+  String txt2, {
+  Color? valueColor,
+}) {
   double w = MediaQuery.of(context).size.width;
   double h = MediaQuery.of(context).size.height;
 
@@ -46,20 +52,20 @@ Widget Cards(BuildContext context, String txt, String value) {
                 style: TextStyle(
                   fontSize: w * 0.06,
                   fontWeight: FontWeight.w700,
-                  color: SecColor.textwhclr,
+                  color: valueColor ?? SecColor.textwhclr,
                 ),
               ),
             ),
             SizedBox(height: w * 0.02),
             Flexible(
               child: Text(
-                value,
+                txt2,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
                 style: TextStyle(
-                  fontSize: w * 0.034,
+                  fontSize: w * 0.04,
                   fontWeight: FontWeight.w700,
-                  color: SecColor.textgrclr,
+                  color: valueColor ?? SecColor.textgrclr,
                 ),
               ),
             ),

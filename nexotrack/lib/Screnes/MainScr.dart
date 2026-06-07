@@ -43,7 +43,8 @@ class Mainnscr extends StatelessWidget {
         final invested = pro.getTotalInvested();
         final current = pro.getTotalCurrentValue(context);
         final profit = current - invested;
-        final proNum = context.read<FuncPro>();
+        final profitpercent = ((profit / invested) * 100);
+        // final proNum = context.read<FuncPro>();
         return Scaffold(
           appBar: AppBar(
             title: Text(
@@ -69,12 +70,22 @@ class Mainnscr extends StatelessWidget {
                     context,
                     "Total Value",
                     "\$${pro.formatAmount(current)}",
+                    "${pro.MyCoin.length}Coins",
                   ),
-                  Cards(context, "Invested", "\$${pro.formatAmount(invested)}"),
+                  Cards(
+                    context,
+                    "Invested",
+                    "\$${pro.formatAmount(invested)}",
+                    "Entry Price",
+                  ),
                   Cards(
                     context,
                     "Profit/Loss",
                     "\$${pro.formatAmount(profit)}",
+                    "${pro.formatAmount(profitpercent)} %",
+                    valueColor: profitpercent >= 0
+                        ? PrimaryColor.ProftClr
+                        : PrimaryColor.LossClr,
                   ),
                 ],
               ),
