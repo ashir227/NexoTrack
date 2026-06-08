@@ -4,9 +4,11 @@ import 'package:nexotrack/Core/theme/color.dart';
 Widget Cards(
   BuildContext context,
   String txt,
+  // String txt7,
   String value,
   String txt2, {
   Color? valueColor,
+  Color? valueColor2,
 }) {
   double w = MediaQuery.of(context).size.width;
   double h = MediaQuery.of(context).size.height;
@@ -47,12 +49,13 @@ Widget Cards(
             Flexible(
               child: Text(
                 value,
+
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
                 style: TextStyle(
                   fontSize: w * 0.06,
                   fontWeight: FontWeight.w700,
-                  color: valueColor ?? SecColor.textwhclr,
+                  color: valueColor2 ?? SecColor.textwhclr,
                 ),
               ),
             ),

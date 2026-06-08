@@ -7,6 +7,7 @@ Widget ElevBtn({
   required String text,
   required double width,
   required double height,
+  Color? clrr,
 }) {
   return SizedBox(
     width: width,
@@ -34,7 +35,7 @@ Widget ElevBtn({
           textAlign: TextAlign.center,
           text,
           style: TextStyle(
-            fontSize: 16,
+            fontSize: 18,
             fontWeight: FontWeight.w600,
             color: SecColor.textwhclr,
           ),

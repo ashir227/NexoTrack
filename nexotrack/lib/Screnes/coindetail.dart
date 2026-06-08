@@ -8,6 +8,7 @@ import 'package:nexotrack/Models/portfolio_model.dart';
 import 'package:nexotrack/Provider/ApiPro.dart';
 import 'package:nexotrack/Provider/FunctionsPro.dart';
 import 'package:nexotrack/Screnes/AddCoin.dart';
+import 'package:nexotrack/Screnes/Sell.dart';
 import 'package:provider/provider.dart';
 
 import 'package:intl/intl.dart';
@@ -49,13 +50,30 @@ class coindetails extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              reusetext(
-                context: context,
-                clr: SecColor.textwhclr,
-                Size: w * 0.06,
-                txt:
-                    "${coin.name[0].toUpperCase()}${coin.name.substring(1).toLowerCase()}",
-                FontWeight: FontWeight.w500,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("a"),
+
+                  reusetext(
+                    context: context,
+                    clr: SecColor.textwhclr,
+                    Size: w * 0.06,
+                    txt:
+                        "${coin.name[0].toUpperCase()}${coin.name.substring(1).toLowerCase()}",
+                    FontWeight: FontWeight.w500,
+                  ),
+                  ElevBtn(
+                    context: context,
+                    onpressed: () {
+                      funcpro.deleteCoin(coin.name);
+                      Navigator.pop(context);
+                    },
+                    text: "d",
+                    width: w * 0.06,
+                    height: h * 0.08,
+                  ),
+                ],
               ),
 
               Image.asset(
@@ -161,7 +179,14 @@ class coindetails extends StatelessWidget {
                   ),
                   ElevBtn(
                     context: context,
-                    onpressed: () {},
+                    onpressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SellCoin(coins: coin),
+                        ),
+                      );
+                    },
                     text: "Delete",
                     width: w * 0.3,
                     height: h * 0.08,

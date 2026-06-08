@@ -46,6 +46,19 @@ class FuncPro extends ChangeNotifier {
     return null;
   }
 
+  void deleteCoin(String coinName) {
+    final index = MyCoin.indexWhere((c) => c.name == coinName);
+
+    if (index != -1) {
+      MyCoin.removeAt(index);
+
+      var box = Hive.box("mycoin");
+      box.deleteAt(index);
+
+      notifyListeners();
+    }
+  }
+
   double currentpercent(PortfolioModel Addcoin, double currentPrice) {
     var percent = ((currentPrice - Addcoin.buyPrice) / Addcoin.buyPrice) * 100;
 
@@ -117,5 +130,38 @@ class FuncPro extends ChangeNotifier {
     }
 
     return NumberFormat('#,##0').format(value);
+  }
+
+  void sellCoin(String name, double sellQty) {
+    var box = Hive.box("mycoin");
+
+    final index = MyCoin.indexWhere((c) => c.name == name);
+
+    if (index == -1) return;
+
+    final oldCoin = MyCoin[index];
+
+    // agar poora sell ya zyada ho jaye
+    if (sellQty >= oldCoin.qty) {
+      MyCoin.removeAt(index);
+      box.deleteAt(index);
+    } else {
+      final newQty = oldCoin.qty - sellQty;
+
+      // simple proportional invest reduce
+      final newInvest = oldCoin.totalinvest * (newQty / oldCoin.qty);
+
+      final updated = PortfolioModel(
+        name: oldCoin.name,
+        qty: newQty,
+        buyPrice: oldCoin.buyPrice,
+        totalinvest: newInvest,
+      );
+
+      MyCoin[index] = updated;
+      box.putAt(index, updated);
+    }
+
+    notifyListeners();
   }
 }

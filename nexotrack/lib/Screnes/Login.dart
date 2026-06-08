@@ -30,7 +30,7 @@ class LoginScr extends StatelessWidget {
               // mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  "assets/images/nt_logo_option5_1.jpg",
+                  "assets/images/nt_logo.jpg",
                   width: w * 0.7,
                   height: h * 0.3,
                 ),
