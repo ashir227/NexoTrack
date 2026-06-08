@@ -43,7 +43,9 @@ class Mainnscr extends StatelessWidget {
         final invested = pro.getTotalInvested();
         final current = pro.getTotalCurrentValue(context);
         final profit = current - invested;
-        final profitpercent = ((profit / invested) * 100);
+        final double profitpercent = invested == 0
+            ? 0
+            : ((profit / invested) * 100);
         if (profitpercent == 0) {
           return Text("0%");
         }

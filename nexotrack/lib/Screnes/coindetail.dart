@@ -53,7 +53,7 @@ class coindetails extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("a"),
+                  Text("aaaaaa"),
 
                   reusetext(
                     context: context,
@@ -63,15 +63,16 @@ class coindetails extends StatelessWidget {
                         "${coin.name[0].toUpperCase()}${coin.name.substring(1).toLowerCase()}",
                     FontWeight: FontWeight.w500,
                   ),
-                  ElevBtn(
-                    context: context,
-                    onpressed: () {
+                  IconButton(
+                    onPressed: () {
                       funcpro.deleteCoin(coin.name);
                       Navigator.pop(context);
                     },
-                    text: "d",
-                    width: w * 0.06,
-                    height: h * 0.08,
+                    icon: Icon(
+                      Icons.delete,
+                      color: PrimaryColor.LossClr,
+                      size: w * 0.097,
+                    ),
                   ),
                 ],
               ),
@@ -187,7 +188,7 @@ class coindetails extends StatelessWidget {
                         ),
                       );
                     },
-                    text: "Delete",
+                    text: "Sell",
                     width: w * 0.3,
                     height: h * 0.08,
                   ),
