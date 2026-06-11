@@ -46,9 +46,7 @@ class Mainnscr extends StatelessWidget {
         final double profitpercent = invested == 0
             ? 0
             : ((profit / invested) * 100);
-        if (profitpercent == 0) {
-          return Text("0%");
-        }
+
         // final proNum = context.read<FuncPro>();
         return Scaffold(
           appBar: AppBar(
